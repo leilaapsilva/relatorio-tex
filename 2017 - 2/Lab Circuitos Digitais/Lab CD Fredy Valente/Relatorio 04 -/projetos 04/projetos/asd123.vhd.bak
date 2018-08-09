@@ -1,0 +1,84 @@
+LIBRARY ieee;
+USE ieee.std_logic_1164.ALL;
+USE ieee.std_logic_unsigned.ALL;
+
+ENTITY asd123 IS
+	PORT
+	(
+		SW			:	IN		std_logic_vector(0 downto 0);	-- 1 = esta_subindo, 0 esta_descendo
+		clock_50	:	IN		bit;									-- clk
+		KEY		:	IN		std_logic_vector(0 downto 0);	-- 1 = esta_parado
+		LEDR		:	OUT	std_logic_vector(1 downto 0)	-- 00 = parado (1), 01 = subindo, 10 = parado (2), 11 = descendo
+	);
+END elevador;
+	
+	
+	
+	
+	
+	
+ARCHITECTURE behavior OF asd123 IS
+
+	BEGIN
+		
+		PROCESS(KEY)
+			
+			TYPE estados IS (A,B,C,D);
+			VARIABLE estado_atual : estados:=A;
+			VARIABLE estado_futuro : estados;
+			
+			BEGIN
+			
+				IF((clock_50 = '1') AND (clock_50'EVENT)) THEN
+					
+					CASE estado_atual IS
+						
+						
+						
+						WHEN A => IF(KEY = "1") THEN		--parado (1)
+							estado_futuro := B;
+						ELSE
+							estado_futuro := A;
+						END IF;
+					
+
+						WHEN B => IF (SW = "1") THEN		--subindo (1 -> 2)
+							estado_futuro := C;
+						ELSE
+							estado_futuro := B;
+						END IF;
+					
+
+						WHEN C => IF (KEY = "1") THEN		--parado (2)
+							estado_futuro := D;
+						ELSE 
+							estado_futuro := C;
+						END IF;
+					
+
+						WHEN D => IF (SW = "0") THEN		--descendo (2 -> 1)
+							estado_futuro := A;
+						ELSE
+							estado_futuro := D;
+						END IF;
+					
+					END CASE;
+				
+				
+				estado_atual := estado_futuro;
+				
+				
+					CASE estado_futuro IS
+					
+						WHEN A => LEDR <="00";						
+						WHEN B => LEDR <="01";
+						WHEN C => LEDR <="10";
+						WHEN D => LEDR <="11";
+					
+					END CASE;
+					
+				END IF;
+				
+		END PROCESS;
+		
+END behavior;

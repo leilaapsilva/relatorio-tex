@@ -1,0 +1,66 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\Lobisgato\Google Drive\Lab CD Fredy Valente\Relatorio 5\lab_cd\aula9\maquina\simulation\modelsim
+vinicial
+IZ6VaIe:M`A>ES=EK<2_d>1
+Vc4`TF88g0f0VIDLgNHIRl0
+Z1 dC:\Users\Lobisgato\Google Drive\Lab CD Fredy Valente\Relatorio 5\lab_cd\aula9\maquina\simulation\modelsim
+Z2 w1512794707
+Z3 8C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina.v
+Z4 FC:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina.v
+L0 1
+Z5 OV;L;10.1d;51
+r1
+31
+Z6 !s108 1512960882.864000
+Z7 !s107 C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina.v|
+Z8 !s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina|C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina.v|
+Z9 o-vlog01compat -work work -O0
+Z10 !s92 -vlog01compat -work work {+incdir+C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina} -O0
+!i10b 1
+!s100 jh<jd;@eFl[ck>AZMm5I:1
+!s85 0
+!s101 -O0
+vmaquina
+I9JE=7iU^CA6YM2cX;9`ze0
+VR=F8M8<jO8bzba1<JKZZV2
+R1
+R2
+R3
+R4
+L0 75
+R5
+r1
+31
+R6
+R7
+R8
+R9
+R10
+!i10b 1
+!s100 GSm:Cj[67H6MUY3[ePUbG1
+!s85 0
+!s101 -O0
+vmaquina_TB
+!i10b 1
+!s100 l6^T?;A61XOP1mSd:NlCV1
+IZI;eDRm@gHbCi56K;9oO=2
+VgedBmR9Qb2MH==PWPnMfJ3
+R1
+R2
+8C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina_TB.v
+FC:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina_TB.v
+L0 1
+R5
+r1
+!s85 0
+31
+!s108 1512960885.814000
+!s107 C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina_TB.v|
+!s90 -reportprogress|300|-vlog01compat|-work|work|+incdir+C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina|C:/Users/Lobisgato/Google Drive/Lab CD Fredy Valente/Relatorio 5/lab_cd/aula9/maquina/maquina_TB.v|
+!s101 -O0
+R9
+R10
+nmaquina_@t@b

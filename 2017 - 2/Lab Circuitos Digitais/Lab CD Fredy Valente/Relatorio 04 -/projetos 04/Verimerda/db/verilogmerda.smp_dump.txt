@@ -1,0 +1,5 @@
+
+State Machine - |verilogmerda|moore_2:inst|state
+Name state.state_B 
+state.state_A 0 
+state.state_B 1 
