@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1497466118 source:c:\users\lobisgato\desktop\primos_find\main.c
+	<stdio.h>
+	<stdlib.h>
+

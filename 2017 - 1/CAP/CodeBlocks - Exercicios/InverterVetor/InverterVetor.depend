@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1502319130 source:c:\users\lobisgato\desktop\invertervetor\main.c
+	<stdio.h>
+	<stdlib.h>
+

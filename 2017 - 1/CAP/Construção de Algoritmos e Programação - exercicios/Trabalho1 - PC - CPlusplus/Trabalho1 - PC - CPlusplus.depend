@@ -1,0 +1,22 @@
+# depslib dependency file v1.0
+1506150291 source:c:\users\lobisgato\desktop\trabalho1 - pc - cplusplus\main.cpp
+	<iostream>
+	"Data.h"
+	"Professor.h"
+
+1506150427 source:c:\users\lobisgato\desktop\trabalho1 - pc - cplusplus\src\data.cpp
+	"Data.h"
+	<string.h>
+	<iostream>
+
+1506149644 c:\users\lobisgato\desktop\trabalho1 - pc - cplusplus\include\data.h
+
+1506150319 source:c:\users\lobisgato\desktop\trabalho1 - pc - cplusplus\src\professor.cpp
+	"Professor.h"
+	"Data.h"
+	<string.h>
+	<iostream>
+
+1506149954 c:\users\lobisgato\desktop\trabalho1 - pc - cplusplus\include\professor.h
+	"Data.h"
+

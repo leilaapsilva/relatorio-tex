@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1497572821 source:c:\users\lobisgato\desktop\vetores\main.c
+	<stdio.h>
+	<stdlib.h>
+
