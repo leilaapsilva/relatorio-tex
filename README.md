@@ -8,4 +8,4 @@ mesma matéria anteriormente e tente entregar, pois isso prejudica (e muito) o s
 Se tiver alguma dúvida, me procure! Eu te ajudo. ;) 
 
 
-Se você está pensando em me empregar... eu juro que hoje sou mais organizado do na época.
+Se você está pensando em me empregar... eu juro que hoje sou mais organizado do que na época.
