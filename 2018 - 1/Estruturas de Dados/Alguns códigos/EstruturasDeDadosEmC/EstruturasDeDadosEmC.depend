@@ -1,0 +1,27 @@
+# depslib dependency file v1.0
+1523844286 source:c:\users\martmanhunter\desktop\estudos ferrari\estruturasdedadosemc\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Fila.h"
+
+1523844862 source:c:\users\martmanhunter\desktop\estudos ferrari\estruturasdedadosemc\fila.c
+	"Fila.h"
+	<stdio.h>
+	<stdbool.h>
+
+1523844532 c:\users\martmanhunter\desktop\estudos ferrari\estruturasdedadosemc\fila.h
+	<stdbool.h>
+
+1523844862 source:c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\estruturasdedadosemc\fila.c
+	"Fila.h"
+	<stdio.h>
+	<stdbool.h>
+
+1523844532 c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\estruturasdedadosemc\fila.h
+	<stdbool.h>
+
+1523844880 source:c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\estruturasdedadosemc\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Fila.h"
+

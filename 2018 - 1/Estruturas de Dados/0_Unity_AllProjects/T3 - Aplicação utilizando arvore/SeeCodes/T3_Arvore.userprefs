@@ -1,0 +1,16 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\_Scripts\GameControl.cs">
+    <Files>
+      <File FileName="Assets\_Scripts\Arvore.cs" Line="192" Column="18" />
+      <File FileName="Assets\_Scripts\Elemento.cs" Line="25" Column="4" />
+      <File FileName="Assets\_Scripts\GameControl.cs" Line="93" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="C:\Users\MartManHunter\Desktop\T3_Arvore\Assets\_Scripts\Arvore.cs" line="84" column="4" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

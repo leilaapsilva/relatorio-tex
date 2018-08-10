@@ -1,0 +1,111 @@
+Lista Circular duplamente encadeada não ordenada sem elementos repetidos e com nó Header
+
+
+Cria(char *p){
+	p = newNode;
+	p->dir = p;
+	p->esq = p;
+	p->primeiro = p;
+	p->ultimo = p;
+		
+
+	
+
+}
+
+Vazia(*p){
+	if(p->primeiro == p->ultimo)
+		return true;
+return false;
+
+}
+
+Cheia(*p){
+if(p->ultim
+?????	
+	
+
+}
+
+Insere(*p, char X, boolean ok){
+	p->
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Retira(*p, char X, boolean ok){
+
+nodeptr p;
+p = h->dir;
+h-> info = X;
+	while(p->Info != X)
+	{p= p-> dir;
+
+		if(p!= h){
+			ok = true;
+			x = p->Info;
+			// p->esq->dir = p-> dir;
+			// p->dir-> esq = p-> esq;
+			// deleteNode(p);
+						
+
+}
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	
+
+
+
+
+}
+
