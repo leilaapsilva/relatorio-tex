@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1538275581 source:c:\users\martmanhunter\desktop\ufscar\coisas_que_todo_mundo_deveria_saber\jogodasgomas\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"string.h"
+
