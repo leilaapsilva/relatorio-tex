@@ -1,8 +1,0 @@
-|Projeto2
-LEDG[1] <= inst.DB_MAX_OUTPUT_PORT_TYPE
-SW[1] => inst.IN0
-SW[2] => ~NO_FANOUT~
-SW[3] => inst.IN1
-SW[4] => ~NO_FANOUT~
-
-
