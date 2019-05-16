@@ -1,0 +1,63 @@
+gerarRelatPedidosCliente(codigoCli) {
+}
+// Casos de uso: interface, solicitações externas
+
+a)
+inView       	 	  : 0				%
+inController	  	  : 1				%					
+inRelatorioCliente	  : 1				%
+inPedido    		  : 1				%Composicao de itens, item é produto
+inCliente 	    	  : 1				%
+inItem			  : 1				%
+inProduto	   	  : 1
+
+outView       	 	  : 1
+outController	  	  : 1
+outRelatorioCliente	  : 0
+outPedido    		  : 1 
+outCliente 	    	  : 0
+outItem			  : 1
+outProduto	   	  : 0
+
+1.          ||   o que eu quero
+1.1	    ||   relatorio = gerarRelatPedidosCliente(codigoCli:int) 	 : RelatorioPedidoCliente	 
+1.1.1	    ||   cli = recuperarCliente(codigoCli : int) 		 : Cliente
+
+
+# 1.1.2      pedidos = RecuperaTdsPedidosCliente(cli) 			 : Collection
+
+# 1.1.2.1    itens: getItemPedido(this)  				 : Collection 
+
+# 1.1.2.1.1  produto = getProduto()				         : Produto
+
+
+1.1.3       ||   [for each p in pedidos] pedido = getPedido() 		 : Pedido
+
+Sol para manter acoplamentos: passar gerarRelatPedidosCliente(codigoCli:int) para Pedido
+
+b)
+
+inView       	 	  : 0
+inController	  	  : 1
+inPedidosCol	      	  : 1
+inPedido    		  : 1
+inCliente 	    	  : 1
+inItem			  : 1
+inProduto	   	  : 1
+
+outView       	 	  : 1
+outController	   	  : 1
+outPedidosCol	      	  : 0
+outPedido    		  : 1 
+outCliente 	    	  : 2
+outItem			  : 1
+outProduto	   	  : 0
+
+de entrada: iguais
+acoplamento(de saida) original : 1,1,0,1,0,1,0
+acoplamento(de saida) novo     : 1,1,0,1,2,1,0
+	outCliente += 2;
+	
+	
+
+
