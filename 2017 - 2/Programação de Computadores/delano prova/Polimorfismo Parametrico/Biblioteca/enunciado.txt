@@ -1,0 +1,39 @@
+Crie a classe Livro com os seguintes atributos:
+
+	* Título (String)
+	* Idioma (String)
+	* Ano de Lançamento (int)
+
+Crie a classe Autor com os seguintes atributos
+
+	* Nome (String)
+
+Altere as classes Autor e Livro para implementar um relacionamento 1 para N entre essas classes. Ou seja:
+
+	* Uma instância da  classe Livro tem obrigatoriamente uma instância de Autor associado. 
+	* Uma instância da classe Autor tem 0 .. N instâncias de livros associados (esse relacionamento não precisa ser implementado completamente)
+
+Cria a classe Biblioteca
+	- Tem como atributo algo que representa uma coleção de livros
+
+Crie a classe Main 
+
+	* Método main com as seguintes funcionalidades
+
+ 		- Criar um objeto da classe Biblioteca
+ 		- Criar 5 a 10 livros e adicionar à coleção (representa pelo objeto criada anteriormente)
+
+	* Um método que imprime uma coleção de livros c (passada como parâmetro)
+
+		- void imprime(Colecao c)
+
+Altere a classe Biblioteca
+
+	* Um método que imprime todos os livros de um certo autor (passado como parâmetro). Adicionalmente a coleção deve ser impressa ordem alfabética do título.
+		
+		- void imprimeLivros(String autor)		
+
+	* Um método que imprime todos os livros que foram lançados depois de um certo ano (passado como parâmetro). Adicionalmente a coleção deve ser impressa em certa ordem (ano + alfabética título).
+
+		- void imprimeLivros(int ano)
+

@@ -1,0 +1,81 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\altera\13.0sp1\projetos\simulation\qsim
+vasd123
+Z1 !s100 aJMEA1KPgb4JfKT;Wcj050
+Z2 IL9O;2Y276XUkedW?BlhR;3
+Z3 V9IB5T=b6A3^oE3=m:R16n2
+Z4 dC:\altera\13.0sp1\projetos\simulation\qsim
+Z5 w1489601831
+Z6 8asd123.vo
+Z7 Fasd123.vo
+L0 31
+Z8 OV;L;10.1d;51
+r1
+31
+Z9 !s90 -work|work|asd123.vo|
+Z10 o-work work -O0
+!i10b 1
+!s85 0
+Z11 !s108 1489601832.247000
+Z12 !s107 asd123.vo|
+!s101 -O0
+vasd123_vlg_check_tst
+!i10b 1
+Z13 !s100 6:Q4cdiIB>`i7B:HdL`1o2
+Z14 InGc=olUh;=KM`KHkD@@:K3
+Z15 V91ddTc00hi_YRznl:c>=A2
+R4
+Z16 w1489601830
+Z17 8asd123.vt
+Z18 Fasd123.vt
+L0 61
+R8
+r1
+!s85 0
+31
+Z19 !s108 1489601832.419000
+Z20 !s107 asd123.vt|
+Z21 !s90 -work|work|asd123.vt|
+!s101 -O0
+R10
+vasd123_vlg_sample_tst
+!i10b 1
+Z22 !s100 3zUfT4dCfjBiOFIJbmRLT0
+Z23 IIcSi4W^1AQTfFoF_lzT]72
+Z24 V4[eQhDLl[SVZ<CR<jHnV<1
+R4
+R16
+R17
+R18
+L0 29
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10
+vasd123_vlg_vec_tst
+!i10b 1
+!s100 [GVa4:U?MFdOKj=ngK7OC1
+IGTmkBbA^V3C1g7Ka><XU33
+Z25 Vm^_GV>JU0nHO<WAmd?;8f0
+R4
+R16
+R17
+R18
+Z26 L0 173
+R8
+r1
+!s85 0
+31
+R19
+R20
+R21
+!s101 -O0
+R10

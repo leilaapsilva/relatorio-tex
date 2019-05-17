@@ -1,0 +1,6 @@
+|LLDX
+LEDG[1] <= inst.DB_MAX_OUTPUT_PORT_TYPE
+SW[8] => inst.IN0
+SW[9] => inst.IN1
+
+

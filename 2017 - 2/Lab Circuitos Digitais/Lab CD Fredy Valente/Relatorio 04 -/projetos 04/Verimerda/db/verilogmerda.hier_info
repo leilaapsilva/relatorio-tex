@@ -1,0 +1,15 @@
+|verilogmerda
+LEDR[0] <= moore_2:inst.out_S
+KEY3 => moore_2:inst.clk
+SW[0] => moore_2:inst.in
+KEY0 => moore_2:inst.reset
+
+
+|verilogmerda|moore_2:inst
+clk => state~1.DATAIN
+in => state.state_A.DATAIN
+in => state.state_B.DATAIN
+reset => state~3.DATAIN
+out_S <= out_S.DB_MAX_OUTPUT_PORT_TYPE
+
+
