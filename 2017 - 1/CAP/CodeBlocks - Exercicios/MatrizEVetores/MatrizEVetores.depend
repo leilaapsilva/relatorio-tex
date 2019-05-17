@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1497636605 source:c:\users\lobisgato\desktop\matrizevetores\main.c
+	<stdio.h>
+	<stdlib.h>
+

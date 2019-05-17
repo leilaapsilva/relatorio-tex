@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1505920212 source:c:\users\lobisgato\desktop\agendadodentista\main.c
+	<stdio.h>
+	<stdlib.h>
+	<locale.h>
+	<string.h>
+

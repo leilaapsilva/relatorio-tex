@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1502308302 source:c:\users\lobisgato\desktop\recursivefatorial\main.c
+	<stdio.h>
+	<stdlib.h>
+

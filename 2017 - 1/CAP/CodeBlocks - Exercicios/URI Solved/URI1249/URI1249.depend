@@ -1,0 +1,6 @@
+# depslib dependency file v1.0
+1499027735 source:c:\users\lobisgato\desktop\codeblocks - exercicios\uri solved\uri1249\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1506656536 source:c:\users\lobisgato\desktop\somadematrizes\main.c
+	<stdio.h>
+	<stdlib.h>
+

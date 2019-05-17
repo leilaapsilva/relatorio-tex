@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1502318315 source:c:\users\lobisgato\desktop\iramedio\main.c
+	<stdio.h>
+	<stdlib.h>
+

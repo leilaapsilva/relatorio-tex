@@ -1,0 +1,18 @@
+body {
+    background-color: black;
+}
+h1 { text-align:center;
+	font-size:200px;
+    color: blue;
+}
+p {
+    color: red;
+}
+
+img {
+	position: absolute;
+    top: 300; bottom:0; left: 0; right:0;
+    margin: auto;
+	
+
+}
