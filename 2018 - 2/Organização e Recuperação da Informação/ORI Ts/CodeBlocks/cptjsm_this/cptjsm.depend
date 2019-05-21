@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1536104187 source:c:\users\martmanhunter\desktop\ufscar\coisas_que_todo_mundo_deveria_saber\cptjsm\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1536104187 source:c:\users\martmanhunter\desktop\ori ts\codeblocks\cptjsm_this\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+

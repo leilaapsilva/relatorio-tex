@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1536112053 source:c:\users\martmanhunter\desktop\ufscar\coisas_que_todo_mundo_deveria_saber\cpp_trab_ultimo\main.cpp
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<vector>
+

@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1536104031 source:c:\users\martmanhunter\desktop\ori ts\codeblocks\trabalho_1_ori\main.cpp
+	<iostream>
+	<stdlib.h>
+	<stdio.h>
+	<string.h>
+	<vector>
+
