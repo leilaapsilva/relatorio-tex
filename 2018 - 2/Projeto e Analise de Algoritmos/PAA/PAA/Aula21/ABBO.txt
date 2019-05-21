@@ -1,0 +1,59 @@
+Árvores Binárias de Busca Ótimas
+
+Explicação do problema:
+
+ - Dado um conjunto de itens, qualquer árvore binária de busca deve respeitar a propriedade de que os itens da subárvore esquerda são menores que a raiz que, por sua vez é menor que os itens da subárvore direita
+ 
+ - No entanto, existem inúmeras árvores binárias de busca válidas para um mesmo conjunto de itens
+ 
+ - O que leva à questão, qual a melhor árvore?
+ 
+ - Note que o tempo de acesso a um item é proporcional à altura deste item na árvore
+ 
+ - Assim, pensando numa árvore de propósito geral e numa análise de pior caso, a melhor árvore é aquela que tem a menor altura possível
+ 
+    - ou seja, uma árvore binária de busca balanceada, como uma árvore AVL ou uma árvore Rubro-Negra, já que estas tem altura proporcional a \Theta(n)
+
+ - Mas, se é este o caso, o que queremos dizer com Árvores Binárias de Busca Ótimas?
+ 
+ - Este problema surge em contextos em que conhecemos a frequência com que os itens são acessados
+ 
+    - Por exemplo, porque eles são palavras de uma linguagem num software de verificação de erros gramaticais
+
+ - Com essa nova informação, podemos buscar algo melhor do que árvores de propósito geral
+
+
+
+Definição do problema:
+
+ - Entrada:
+ 
+    - Lista com n itens (em ordem crescente)
+	
+	- Frequência de acesso pi de cada item i, para 1 <= i <= n
+	
+ - Solução:
+ 
+    - Uma árvore binária de busca T válida que minimiza o tempo total esperado de busca dos itens, ou seja, 
+	
+	C(T) = \sum_{i=1}^n pi*[tempo de busca de i em T]
+	
+	- Note que o [tempo de busca de i em T] é proporcional à altura de i tem mais 1, i.e., h_T(i) + 1
+
+
+
+Exemplo do problema:
+
+ - Considere itens x < y < z
+ 
+    - Quais são as árvores binárias de busca válidas possíveis para estes três itens?
+
+ - Considere as frequências de acesso px = 80%, py = 10% e pz = 10%
+ 
+    - Qual o tempo total esperado de busca dos itens em cada árvore? Qual a árvore ótima?
+
+
+
+ - Se quiser conferir as respostas, consulte o arquivo do exemplo
+
+

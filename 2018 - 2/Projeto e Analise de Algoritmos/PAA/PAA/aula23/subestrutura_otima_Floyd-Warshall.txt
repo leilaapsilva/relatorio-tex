@@ -1,0 +1,65 @@
+Subestrutura ótima
+
+No problema dos caminhos mínimos de todos para todos não temos uma origem fixa
+
+ - por isso, para definir cada um dos nossos subproblemas precisamos de pelo menos dois parâmetros
+ 
+    - origem i e destino j
+ 
+ - além disso, também é crítico definir claramente quais subproblemas são menores e quais são maiores
+ 
+    - no algoritmo de Bellman-Ford usamos um parâmetro que determinava o número de arestas (ou vértices) máximo que o caminho podia ter
+	
+    - nessa análise de subestrutura ótima, que dará origem ao algoritmo de Floyd-Warshall, vamos usar algo um pouco mais forte
+	
+       - dada uma ordem arbitrária dos vértices, i.e., V = {1, 2, ..., n}
+	   
+	   - usaremos um parâmetro k que determina que apenas os primeiros k vértices da ordem podem ser vértices intermediários do caminho, i.e., os vértices intermediários estão em 
+		  
+			V(k) = {1, 2, ..., k}
+
+ - Definidos os parâmetros i, j, k, temos L(i, j, k) 
+ 
+    - que corresponde ao problema de encontrar o menor caminho de i até j que só usa vértices intermediários de V(k) = {1, 2, ..., k}
+
+ - Sendo P a solução ótima para L(i, j, k) vamos analisar sua subestrutura ótima em relação ao vértice k. Temos duas possibilidades: 
+ 
+    1) Se o vértice k não é um vértice intermediário de P então P é uma solução ótima de L(i, j, k-1)
+	
+    2) Se o vértice k é um vértice intermediário de P então seja
+	
+       - P1 a parte de P que vai de i até k
+	   
+       - P2 a parte de P que vai de k até j
+	   
+	   - como não temos ciclos negativos, P não tem circuitos
+	   
+	      - portanto, o vértice k não aparece no meio de P1, que é uma solução de L(i, k, k-1)
+		  
+		  - de modo similar, o vértice k não aparece no meio de P2, que é uma solução de L(k, j, k-1)
+		  
+	   - Resta mostrar que, tanto P1 quanto P2 são soluções ótimas de seus respectivos subproblemas
+	   
+	      - Para tanto, basta fazer um argumento por contradição e mostrar que se houvesse uma solução melhor para algum dos subproblemas, obteríamos uma solução melhor que P para L(i, j, k), que é uma contradição.
+
+
+
+Recorrência
+
+ - dessa subestrutura ótima derivamos a seguinte recorrência
+ 
+	A[i, j, k] = min{A[i, j, k-1], A[i, k, k-1] + A[k, j, k-1]}
+	
+    - sendo que A[i, j, k] corresponde ao valor do caminho mínimo de i para j que só usa vértices em V(k) = {1, 2, ..., k}
+	
+    - i e j variam sobre todos os vértices, i.e, de 1 até n
+	
+	- k varia de 0 até n, e os casos base ocorrem quando k=0. Neste caso 
+	
+       - A[i, j, 0] = 0 se i = j
+	
+       - A[i, j, 0] = c(i, j) se (i, j) \in E
+	   
+	   - A[i, j, 0] = +\infinity se i != j e (i, j) \not \in E
+
+

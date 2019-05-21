@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1538186807 source:c:\users\martmanhunter\desktop\uri_solved\genetica\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<stdbool.h>
+

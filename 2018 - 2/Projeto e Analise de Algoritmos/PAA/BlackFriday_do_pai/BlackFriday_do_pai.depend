@@ -1,0 +1,5 @@
+# depslib dependency file v1.0
+1544978375 source:c:\users\martmanhunter\desktop\paa\blackfriday_do_pai\main.c
+	<stdio.h>
+	<stdlib.h>
+

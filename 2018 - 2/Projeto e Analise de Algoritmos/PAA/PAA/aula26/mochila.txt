@@ -1,0 +1,141 @@
+Problema da mochila
+
+Entrada:
+
+ - n itens
+ 
+ - a cada item i está associado
+ 
+    - valor vi > 0
+	
+	- peso wi > 0
+
+ - capacidade da mochila W > 0
+
+Solução:
+
+ - coleção de itens S contida em {1, 2, ..., n} que
+ 
+    - maximiza \sum_{i \in S} vi
+	
+	- sujeito a \sum_{i \in S} wi <= W
+
+
+
+Aparece com muita frequência como subproblema de outros problemas de interesse, sempre que temos um recurso que queremos usar da melhor forma possível.
+
+
+
+Ideia para uma heurística gulosa
+
+ - itens com maior valor tem prioridade
+ 
+ - itens com menor peso tem prioridade
+ 
+ - pra relacionar essas duas grandesas
+ 
+    - itens com maior densidade de valor tem prioridade
+
+
+
+Heurística
+
+ 1) ordenamos os itens em ordem decrescente de razão vi/wi, para i = 1, ..., n
+ 
+	 - para facilitar, renomeamos os itens de 1 a n seguindo essa ordem
+ 
+		v1/w1 >= v2/w2 >= v3/w3 >= ... >= vn/wn
+
+ 2) colocamos os itens na mochila nesta ordem até não caber mais
+
+
+
+Como podemos verificar nos exemplos, existem casos em que a solução desta heurística não fornece qualquer garantia de qualidade em relação à solução ótima
+
+ - no entanto, uma pequena variação da mesma se sai muito melhor
+
+
+
+Heurística melhorada
+
+ 1) ordenamos os itens em ordem decrescente de razão vi/wi, para i = 1, ..., n
+ 
+	 - para facilitar, renomeamos os itens de 1 a n seguindo essa ordem
+ 
+		v1/w1 >= v2/w2 >= v3/w3 >= ... >= vn/wn
+
+ 2) colocamos os itens na mochila nesta ordem até não caber mais
+ 
+ 3) escolhemos o melhor entre o empacotamento que obtivemos no item 2 e o item de maior valor disponível
+
+
+
+Eficiência:
+
+ - este algoritmo executa em tempo O(n log n)
+
+Qualidade:
+
+ - a solução deste algoritmo é pelo menos 50% do ótimo
+ 
+    - dizemos que é um algoritmo 1/2-aproximado
+
+Demonstração:
+
+ - considere uma solução fracionária gulosa Sf construída seguindo a ordem do algoritmo guloso mas que
+ 
+ - ao encontrar o primeiro item (k+1) que não cabe na mochila, pega a maior fração dele que couber
+ 
+ - observe que o valor de Sf >= o valor da solução ótima
+ 
+    - para verificar isso, considere uma solução qualquer S diferente de Sf
+	
+	- suponha que S tem l unidades que não estão presentes em Sf
+	
+	- como Sf preenche totalmente a mochila, ela tem pelo menos l unidades que não estão presentes em S
+	
+	- mas, pelo critério guloso, sabemos que a densidade de valor dos itens escolhidos para Sf é a maior possível
+	
+	- portanto, as l unidades de Sf tem valor >= que as l unidades de S
+	
+	- o que mostra que Sf tem valor >= que S
+	
+	- como S é uma solução qualquer, Sf tem valor >= que a solução ótima, inclusive
+
+ - agora, note que o valor do algoritmo é o melhor (maior) entre 
+ 
+    - o valor dos primeiros k itens que couberam na mochila 
+	
+	- o valor do item k+1 que não coube na mochila 
+	
+	   - já que ele é um dos itens que o algoritmo considera ao escolher o de maior valor
+	   
+	- portanto
+	
+	   - valor algoritmo >= \sum_{i=1}^k vi
+	   
+	   - valor algoritmo >= vk+1
+	   
+	- somando
+	
+	   - 2 valor algoritmo >= \sum_{i=1}^{k+1} vi
+						   >= valor Sf
+						   >= OPT
+	
+	- finalmente
+	
+	   - valor algoritmo >= OPT / 2
+
+
+
+Exemplo justo:
+
+ - v1 = 502 w1 = 501
+ - v2 = 500 w2 = 500
+ - v3 = 500 w3 = 500
+ 
+ valor da solução da heurística gulosa = 502
+ 
+ valor da solução ótima = 1000
+
+

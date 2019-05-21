@@ -1,0 +1,18 @@
+Informalmente, um algoritmo é uma receita, uma sequência de regras bem definidas, para resolver um problema.
+
+Mas, por que estudar algoritmos é tão importante?
+
+ - Algoritmos (e a área irmã estruturas de dados) são centrais para a ciência da computação sendo relevantes em praticamente todas as áreas da mesma, como:
+    - roteamento da internet - utiliza algoritmos para caminhos mínimos e tabelas hash
+	- criptografia - utiliza algoritmos de teoria dos números
+	- computação gráfica - utiliza algoritmos geométricos
+	- biologia computacional - utiliza algoritmos de programação dinâmica
+	- bancos de dados - utiliza árvores de busca balanceadas
+
+ - Importantes para inovação tecnológica, pois o uso de algoritmos mais eficientes para um problema permite aproveitar melhor o poder computacional disponível permitindo atacar instâncias maiores daquele problema. Vale destacar que para muitos problemas o avanço algorítmico supera até o avanço exponencial de processamento da lei de Moore.
+ 
+ - Correspondem a um arcabouço interessante para interpretar processos fora da computação, como o funcionamento de mercados em economia e de evolução na biologia.
+ 
+ - A busca por bons algoritmos para os mais variados problemas é desafiadora, sendo uma ótima oportunidade para fortalecer raciocínio lógico e capacidade analítica. 
+ 
+ - É uma área cheia de resultados interessantes e surpreendentes, que apresenta soluções inesperadas mesmo para problemas clássicos.

@@ -1,0 +1,86 @@
+Vamos analisar a subestrutura ótima do problema da Árvore Binária de Busca Ótima
+
+ - Consideramos que os n itens da nossa árvore tem valores no conjunto {1, 2, ..., n}
+
+    - Note que os argumentos que usaremos funcionam com qualquer conjunto de itens, mas a notação fica mais simples dessa forma
+
+
+
+Começamos pelo exercício de abstração de imaginar uma solução ótima
+
+ - Neste caso, uma árvore binária de busca T com raiz r
+ 
+O que sabemos sobre T e suas subárvores Tl e Tr?
+
+ - Como tratasse de uma árvore de busca, Tl contém os itens {1, ..., r-1} e Tr contém os itens {r+1, ..., n}
+ 
+Além disso, vamos mostrar que Tl é ótima para {1, ..., r-1} e Tr é ótima para {r+1, ..., n}
+
+A ideia dessa demonstração é que, se Tl ou Tr não fossem ótimas para seus respectivos subconjuntos de itens, poderíamos obter uma árvore T' melhor que T trocando suas subárvores pelas ótimas. Vamos formalizar este argumento.
+
+
+
+Demonstração da subestrutura ótima:
+
+ - Seja T uma árvore binária de busca ótima para um conjunto de itens {1, 2, ..., n} com frequências p1, p2, ..., pn.
+ 
+ - Seja r a raiz de T, Tl sua subárvore esquerda e Tr sua subárvore direita
+ 
+ - Vamos mostrar que Tl é ótima (a prova da otimalidade de Tr é identica)
+ 
+ - Suponha por contradição que Tl não é ótima, ou seja, existe outra árvore Tl* para os itens {1, 2, ..., r-1} com tempo total esperado de busca menor que Tl
+ 
+    - Para facilitar a explicação, vamos definir tempo total esperado de busca de uma árvore T como C(T), ou seja
+	
+	- C(T) = \sum_{i=1}^n pi*[tempo de busca de i em T]
+	
+	- C(Tl) = \sum_{i=1}^{r-1} pi*[tempo de busca de i em Tl]
+	
+	- C(Tl*) = \sum_{i=1}^{r-1} pi*[tempo de busca de i em Tl*]
+	
+	- C(Tl*) > C(Tl)
+
+ - Vamos construir uma nova árvore T* para os itens {1, 2, ..., n} removendo Tl de T e colocando Tl* no lugar
+ 
+ - Para concluir a prova, basta mostrar que C(T*) < C(T) (pois isso é uma contradição)
+ 
+ - Então, vamos analisar C(T) mais de perto
+ 
+	C(T) = \sum_{i=1}^n pi*[tempo de busca de i em T]	
+	
+	- como T está enraizada em r, vamos dividir o somatório em três blocos {1, ..., r-1}, {r} e {r+1, ..., n}
+	
+	C(T) = \sum_{i=1}^{r-1} pi*[tempo de busca de i em T] + pr*1 + \sum_{i=r+1}^n pi*[tempo de busca de i em T]
+	
+	- Foque num item i que está em Tl. Note que o [tempo de busca de i em T] é igual a 1 + [tempo de busca de i em Tl]. Observe que o mesmo vale para um item em Tr.
+	
+	C(T) = \sum_{i=1}^{r-1} pi*(1+[tempo de busca de i em Tl]) + pr*1 + \sum_{i=r+1}^n pi*(1+[tempo de busca de i em T])
+	
+	- tirando os termos constantes dos somatórios
+	
+	C(T) = \sum_{i=1}^{r-1} pi*[tempo de busca de i em Tl] + pr*1 + \sum_{i=r+1}^n pi*[tempo de busca de i em T] + \sum_{i=1}^{r-1} pi*1 + \sum_{i=r+1}^n pi*1
+	
+	- agrupando os somatórios, obtemos
+	
+	C(T) = \sum_{i=1}^{r-1} pi*[tempo de busca de i em Tl] + \sum_{i=r+1}^n pi*[tempo de busca de i em T] + \sum_{i=1}^n pi
+	
+	- mas os dois primeiros somatórios são justamente C(Tl) e C(Tr), portanto
+	
+	C(T) = C(Tl) + C(Tr) + \sum_{i=1}^n pi
+
+
+
+ - Fazendo o mesmo desenvolvimento para C(T*) chegamos a
+ 
+	C(T*) = C(Tl*) + C(Tr) + \sum_{i=1}^n pi	// Essa relação vai ser importante
+
+
+
+ - Para concluir
+
+	C(T) = C(Tl) + C(Tr) + \sum_{i=1}^n pi
+	     >= C(Tl*) + C(Tr) + \sum_{i=1}^n pi = C(T*)
+
+	- o que contraria o fato de que T é ótima (contradição).
+
+

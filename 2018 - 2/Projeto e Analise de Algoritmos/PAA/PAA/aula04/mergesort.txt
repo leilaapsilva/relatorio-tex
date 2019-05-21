@@ -1,0 +1,147 @@
+Exemplo/ideia do MergeSort:
+
+ - vetor fora de ordem 
+ 
+    - v = 8 5 4 1 3 6 2 7 
+ 
+ - dividir o vetor a ser ordenado em dois subvetores, cada um com metade do tamanho original
+ 
+    - vl = 8 5 4 1 
+	- vr = 3 6 2 7 
+
+ - ordenar recursivamente os dois subvetores, sendo que subvetores com 0 ou 1 elementos já estão ordenados
+ 
+    - vl = 1 4 5 8
+	- vr = 2 3 6 7
+
+ - intercalar (merge) os subvetores ordenados resultantes
+ 
+    - 1 2 3 4 5 6 7 8 
+
+
+
+Algoritmo MergeSort recursivo:
+
+/* p indica a primeira posicao e u a ultima */
+void mergeSortR (int v[], int p, int u) {
+    int m;
+    if (p < u) {
+        m = (p + u) / 2;
+        mergeSortR (v, p, m);
+        mergeSortR (v, m+1, u);
+        intercala (v, p, m, u);
+    }
+}
+
+
+Algoritmo de intercalação de subvetores ordenados:
+
+/* primeiro subvetor entre p e m, segundo subvetor entre m+1 e u */
+void intercala (int v[], int p, int m, int u) {
+    int i, j, k;
+    int tam = u-p+1;
+    int * w = malloc((tam+1)*sizeof(int));
+    i = p; j = m+1; k = 1;
+    while (i <= m && j <= u) {
+        if (v[i] <= v[j]) w[k++] = v[i++];
+        else /* v[i] > v[j] */ w[k++] = v[j++];
+    }
+    while (i <= m) w[k++] = v[i++];
+    while (j <= u) w[k++] = v[j++];
+    for (k = 1; k <= tam; k++)
+        v[p+k-1] = w[k];
+    free(w);
+}
+
+
+Corretude do intercala:
+
+ - Invariantes: 
+ 
+    - no início de cada iteração w[1..k-1] contém os elementos de v[p..i-1] e v[q..j-1]
+	
+	- os elementos de w[1..k-1], v[i..m] e v[j..u] estão ordenados
+
+
+Eficiência do intercala:
+
+ - O número de operações é linear no tamanho do subvetor sendo intercalado
+ 
+ - Estimamos 10 operações por iteração, portanto 10*tam = 10*(u-p+1)
+
+ - Para verificar isso, note que em cada iteração, de qualquer laço, k aumenta de 1 e seu valor nunca supera u-p+1
+
+
+
+Corretude do MergeSort:
+
+ - Pelo caso base p >= u sabemos que nosso algoritmo devolve subvetores ordenados quando estes tem tamanho menor ou igual a 1.
+
+ - Supondo que nosso algoritmo ordena corretamente um subvetor de tamanho n/2, verificamos que ele ordena um vetor de tamanho n, uma vez que a função intercala funciona corretamente
+
+
+
+Eficiência do mergeSort:
+
+Usamos uma árvore (binária) de recursão na análise.
+
+O número de níveis da árvore é log_2 n + 1, já que:
+
+ - no nível 0 temos n elementos no vetor,
+ 
+ - log_2 n é o número de vezes que podemos dividir n por 2 antes dele se tornar menor ou igual a 1 (caso base).
+
+O número de subproblemas no nível j é 2^j.
+
+O tamanho do vetor dos subproblemas do nível j é n/2^j.
+
+Uma chamada do mergeSort realiza basicamente um teste, seguido de duas chamadas recursivas e uma chamada de intercala.
+
+Como intercala é uma função com eficiência de tempo linear, o trabalho não recursivo realizado por mergeSort num vetor de tamanho m é 10*m.
+
+Assim, o trabalho realizado por nível da árvore é dado pelo número de subproblemas por nível vezes o trabalho não recursivo realizado por subproblema, i.e., 
+
+ - 2^j * 10 * (n/2^j) = 10*n.
+
+Por fim, o trabalho total é dado pela soma no número de níveis da árvore do trabalho realizado por nível desta, i.e.,
+
+ - \sum_{j=0..log_2 n} 10*n = 10*n \sum_{j=0..log_2 n} 1 = 10*n * (1 + log_2 n) = 10n log_2 n + 10n = O(n log n).
+
+Numa comparação rápida, para n = 10^6 e 10^9 temos:
+
+ - log_2 n ~= 20 e 30.
+
+ - n log_2 n ~= 2*10^7 e 3*10^10
+ 
+ - n^2 = 10^12 e 10^18
+
+Supondo que um computador realize 1 Giga (10^9) operações por segundo, temos:
+
+ - um algoritmo de ordenação O(n log n) leva, da ordem de, centésimos de segundo e 30 segundos, 
+ 
+ - um algoritmo de ordenação O(n^2) leva, da ordem de, 16 minutos e 32 anos.
+
+
+
+(Bônus) Algoritmo mergeSort iterativo:
+
+void mergeSortI (int v[], int n) {
+    int p, u;
+    int b = 1;
+    while (b <= n) {
+        p = 1;
+        while (p + b <= n) {
+            u = p + 2 * b - 1;
+            if (u > n) u = n;
+            intercala (v, p, p + b - 1, u);
+            p = p + 2 * b;
+        }
+        b = 2 * b;
+    }
+}
+
+
+
+Animation: https://www.youtube.com/watch?v=ZZuD6iUe3Pc
+
+

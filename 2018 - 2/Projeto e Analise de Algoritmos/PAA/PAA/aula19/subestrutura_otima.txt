@@ -1,0 +1,68 @@
+A parte central do projeto de algoritmos utilizando programação dinâmica é encontrar a subestrutura ótima da solução do problema.
+
+ - Isso significa descrever uma solução ótima em função de soluções ótimas para subproblemas menores
+ 
+ - A princípio isso serve para reduzir o espaço de uma busca exaustiva, mas o impacto pode ser muito maior no tempo de execução, como veremos depois.
+
+
+
+No caso do problema do Conjunto Independente de Peso Máximo em Grafos Caminhos consideramos:
+
+ - uma solução ótima S
+ 
+ - vn o último vértice do grafo caminho G
+
+Então analisamos por casos:
+
+1) vn não está em S
+
+ - sendo G' = G sem vn, temos que S é uma solução ótima em G'
+ 
+    - Provando por contradição, suponha que S* é uma solução melhor que S' para G'. Como S* também é um conjunto independente em G, temos que S* é uma solução melhor que S em G (contradição).
+
+2) vn está em S
+
+ - neste caso vn-1 não pode estar em S
+ 
+ - seja G" = G sem vn e vn-1
+ 
+ - seja S" = S \ {vn}
+ 
+ - temos que S" é uma solução ótima em G"
+ 
+    - Provando por contradição, suponha que S* é uma solução melhor que S" para G". Note que S* U {vn} é uma solução para G. Além disso, como S* é melhor que S" o valor de S* U {vn} é maior que S" U {vn} = S (contradição).
+
+
+
+Notem que identificando a subestrutura ótima da solução conseguimos descrever a solução ótima da seguinte forma
+
+Uma solução ótima para G deve ser a melhor entre:
+
+ - uma solução ótima em G' (G sem o último vértice)
+ 
+ - vn + uma solução ótima em G" (G sem os dois últimos vértices)
+
+
+
+Não sabemos qual dos dois casos se aplica, mas isso nos sugere o seguinte algorimo recursivo
+
+conjIndRec(G=(V,E), w) {
+	se |V| = 1 devolva v1
+	
+	S' = conjIndRec(G')
+	S" = conjIndRec(G")
+	
+	devolva max{w(S'), w(S") + w(vn)}
+}
+
+Podemos mostrar que este algoritmo está correto usando indução e a recorrência obtida na análise da subestrutura ótima.
+
+No entanto, esse algoritmo não é eficiente, levanto tempo exponencial no tamanho da entrada.
+
+ - Tentem escrever a recorrência de tempo do mesmo e resolvê-la usando método da substituição.
+ 
+ - Percebam que vocês podem simplificar a recorrência, já que basta um limitante inferior para mostrar que o algoritmo leva tempo exponencial.
+ 
+ - No fim o tempo desse algoritmo será "parecido" com o tempo de uma exponencia de base 2 que só anda nos números pares (ou ímpares).
+
+

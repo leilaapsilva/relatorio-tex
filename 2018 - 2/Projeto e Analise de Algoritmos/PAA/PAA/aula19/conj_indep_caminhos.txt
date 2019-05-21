@@ -1,0 +1,61 @@
+Vamos começar a estudar a ténica de projeto de algoritmos chamada Programação Dinâmica
+
+Para tanto, vamos abordar um problema bastante particular, mas bastante didático, chamado: Conjunto Independente de Peso Máximo em Grafos Caminhos
+
+Entrada: um grafo caminho G=(V, E) com pesos não negativos nas arestas
+
+ - um grafo caminho é um grafo conexo sem bifurcações, ou seja, o grau de todos os vértices é dois, exceto pelos dois vértices dos extremos que tem grau um.
+ 
+Saída: conjunto independente de peso máximo
+
+ - um conjunto é independente se nenhum par de vértices é adjacente, i.e., tem uma aresta em comum.
+
+
+
+Exemplo: Caminho com quatro vértices e pesos 1, 4, 5, 4
+
+
+
+Antes de projetar um algoritmo usando a nova técnica, vamos testar as técnicas que já conhecemos
+
+ - para entender as dificuldades do problema
+
+ - e limitações das técnicas.
+
+
+
+Abordagem por força bruta:
+
+ - Vamos enumerar todos os 2^n diferentes subconjuntos
+ 
+ - Descartar todos os que tem dois vértices adjacentes
+ 
+ - Encontrar o de peso máximo dentre os que sobraram
+ 
+ - Vantagem: Esta abordagem encontra o resultado correto
+ 
+ - Desvantagem: Ela leva tempo Theta(2^n)
+
+
+
+Abordagem gulosa:
+
+ - Dentre várias possíveis, uma ideia é escolher sempre o vértice de maior peso para fazer parte da solução
+ 
+ - Contra-exemplo: escolhendo o vértice de peso 5 do nosso exemplo anterior (1, 4, 5, 4), ficamos impossibilitados de escolher seus vizinhos.
+ 
+ - Com isso, nossa solução terá peso 5+1 = 6
+ 
+ - Por outro lado o ótimo teria peso 4+4 = 8
+
+
+
+Abordagem por Divisão e Conquista:
+
+ - Dividir o caminho ao meio parece uma boa ideia (semelhante a dividir um vetor ao meio)
+ 
+ - Então podemos resolver recursivamente cada subproblema.
+ 
+ - Contra-exemplo: no entanto, como mostra nosso exemplo anterior (1, 4, 5, 4), a solução ótima do primeiro subcaminho (1, 4) é 4 e a do segundo subcaminho (4, 5) é 5. Observe que não parece fácil combinar essas soluções, já que o primeiro 4 e o 5 são adjacentes.
+
+

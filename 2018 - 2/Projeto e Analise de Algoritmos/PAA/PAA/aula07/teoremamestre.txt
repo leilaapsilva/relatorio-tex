@@ -1,0 +1,71 @@
+Considere a recorrência
+
+ - T(n) <= a * T(n/b) + c * n^d
+ 
+O Teorema Mestre diz que
+
+ - a = b^d --> T(n) = O(n^d log n)
+ - a < b^d --> T(n) = O(n^d)
+ - a > b^d --> T(n) = O(n^log_b a)
+ 
+Vamos entender o porque
+
+
+ 
+Construa uma árvore de recursão baseada nessa recorrência
+
+Supondo que começamos a contar os níveis da árvore em 0
+
+ - Qual o número de subproblemas no nível j dessa árvore? R: a^j
+ 
+ - Qual o tamanho de um subproblema do nível j dessa árvore? R: n/b^j
+ 
+ - Qual trabalho realizado no nível j? 
+    - R: 
+	
+	Trab(j) = #subproblemas * c (tamanho de um subproblema)^d
+              = a^j * c (n/b^j)^d
+			  = c * n^d * (a / b^d)^j
+
+    - Interpretamos a como a taxa com que o trabalho aumenta por nível e b^d como a taxa com que o trabalho diminui por nível da árvore de recursão
+
+ - Quantos níveis tem a árvore de recursão? 
+    
+	- R: Sabemos que no último nível o tamanho do subproblema é 1 (ou algum número pequeno que corresponda ao caso base). Assim, 
+	
+	n/b^#níveis = 1 --> b^#níveis = n --> #níveis = log_b n
+
+ - Qual o trabalho total realizado?
+   
+    - R: Vamos somar ao longo de todos os níveis da árvore
+	
+	T(n) = \sum_{j=0}^{log_b n} c * n^d * (a / b^d)^j
+	     = c * n^d \sum_{j=0}^{log_b n} (a / b^d)^j
+
+ - Nossos casos surgem da razão (a / b^d)
+ 
+ - Caso 1: a = b^d --> a / b^d = 1 --> trabalho se mantém uniforme por nível
+ 
+   T(n) = c * n^d \sum_{j=0}^{log_b n} (a / b^d)^j
+	    = c * n^d \sum_{j=0}^{log_b n} 1
+	    = c * n^d *log_b n
+		= O(n^d log n)
+
+ - Caso 2: a < b^d --> a / b^d < 1 --> trabalho diminui por nível
+ 
+   T(n) = c * n^d \sum_{j=0}^{log_b n} (a / b^d)^j
+        <= c * n^d * 1 / (1 - (a / b^d))
+		= c * n^d * b^d / (b^d - a)
+		= O(n^d) --> dominado pelo trabalho realizado no primeiro nível da árvore
+
+ - Caso 3: a > b^d --> a / b^d > 1 --> trabalho aumenta por nível
+ 
+   T(n) = c * n^d \sum_{j=0}^{log_b n} (a / b^d)^j
+        = c * n^d * ( (a / b^d)^(log_b n + 1) - 1 ) / ((a / b^d) - 1)
+		<= c * n^d * (a / b^d) * a^log_b n / (b^(d * log_b n) * ((a / b^d) - 1))
+		= c * n^d * (a / b^d) * a^log_b n / (n^d * ((a / b^d) - 1))
+		= c * a^log_b n * (a / b^d) / ((a / b^d) - 1)
+		= O(a^log_b n) --> número de folhas no último nível da árvore
+		= O(n^log_b a) --> para verificar que a^log_b n = n^log_b a aplique a operação log_b aos dois lados da equação
+
+

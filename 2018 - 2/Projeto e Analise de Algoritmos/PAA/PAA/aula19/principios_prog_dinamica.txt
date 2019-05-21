@@ -1,0 +1,19 @@
+Os princípios básicos para projetar um algoritmo de programação dinâmica são:
+
+1) encontrar um número pequeno de subproblemas
+
+2) encontrar uma maneira (em geral, uma recorrência) que permita resolver um problema maior usando as soluções de problemas menores
+
+ - essa maneira deve ser correta (claro)
+ 
+ - e rápida (recorrência deve depender de um número polinomial de termos)
+
+3) depois de calcular os subproblemas, encontrar a solução final deve ser fácil
+
+ - um valor da tabela (normalmente a última posição)
+
+
+
+*** Observe que para poder aplicar esses princípios é necessário que o problema apresente a propriedade de subestrutura ótima, ou seja, que uma solução ótima para uma determinada instância possa ser descrita em função de soluções ótimas para subinstâncias da mesma.
+
+

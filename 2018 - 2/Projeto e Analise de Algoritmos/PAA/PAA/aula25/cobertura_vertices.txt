@@ -1,0 +1,75 @@
+Cobertura por Vértices
+
+Entrada: um grafo não orientado G = (V, E)
+
+Solução: um conjunto de vértices S contido em V tal que S tenha cardinalidade mínima e toda aresta em E tenha pelo menos uma ponta em S
+
+
+
+Intuição:
+
+ - podemos pensar que cada aresta é um corredor que queremos monitorar e cada vértice é uma encruzilhada na qual podemos colocar uma câmera ou alarme
+ 
+ - também podemos pensar que cada vértice é uma pessoa e cada aresta uma habilidade compartilhada por duas pessoas. Neste cenário queremos montar o menor time que cubra todas as habilidades.
+ 
+    - se te incomoda que cada habilidade seja compartilhada apenas por duas pessoas, este é um bom ponto. Tanto que existe uma generalização deste problema chamada Cobertura por Conjuntos.
+
+
+
+Versão de decisão:
+
+ - vamos focar na versão de decisão do problema, em que é dado um parâmetro k>0 e queremos saber se existe solução de tamanho no máximo k
+ 
+ - Neste caso, força bruta envolveria testar todas as combinações de conjuntos de vértices com cardinalidade k
+ 
+    - (n escolhe k) = n!/(n-k)!k! = \Theta(n^k) para k constante
+	
+	- tecnicamente \Theta(n^k) é polinomial, mas na prática é inviável para n grande e k maior do que 4 ou 5, no máximo
+
+ - Para tentar fazer melhor, vamos analisar a estrutura de uma solução ótima, de modo semelhante ao que fazemos em algoritmos de programação dinâmica
+
+
+
+Um Lema de Subestrutura da Solução
+
+ - Dado um grafo G e uma aresta (u, v). Seja Gu o grafo G menos o vértice u e todas as arestas incidentes em u. Gv é definido de modo semelhante. Como, em qualquer solução do problema a aresta (u, v) deve estar coberta, temos que G tem uma cobertura de tamanho k se, e somente se, Gu ou Gv tem uma cobertura de tamanho k-1.
+ 
+Demonstração:
+
+(<--) Supondo, sem perda de generalidade, que Gu tem uma cobertura de tamanho k-1, então essa cobertura junto do vértice u tem tamanho k e cobre todas as arestas de G, já que as únicas arestas faltando em Gu são as que incidem em u e, portanto, são cobertas por ele.
+
+(-->) Digamos que G tem uma cobertura de tamanho k. Nessa cobertura a aresta (u, v) deve estar coberta. Supomos, sem perda de generalidade, que ela é coberta pelo vértice v. Removendo o vértice v da cobertura temos uma conjunto de vértices de cardinalidade k-1 que cobre todas as arestas de G que não incidem em v, já que a cobertura original cobria todas as arestas e as únicas arestas que v podia cobrir eram as que incidiam nele. Portanto, o conjunto obtido pela remoção de v é uma cobertura de Gv com tamanho k-1.
+
+
+
+A partir dessa subestrutura podemos projetar uma algoritmo de busca recursivo
+
+coberturaVertices(G=(V,E), int k) {
+
+	se |E| = 0 devolva {}
+	se k = 0 devolva Falha
+
+	pegue uma aresta (u, v) em E
+	
+	Su = coberturaVertices(Gu, k-1)
+	se Su é válida
+		devolva Su U {u}
+	
+	Sv = coberturaVertices(Gv, k-1)
+	se Sv é válida
+		devolva Sv U {v}
+	
+	devolva Falha
+}
+
+
+
+Eficiência: 
+
+ - T(k) = 2T(k-1) + O(m)
+
+ - resolvendo a recorrência usando método da substituição ou da árvore de recorrência, e lembrando que a recursão termina quando k=0, chegamos a
+ 
+ - T(k) = O(m * 2^k)
+
+

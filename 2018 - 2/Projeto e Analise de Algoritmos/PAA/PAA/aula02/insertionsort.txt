@@ -1,0 +1,51 @@
+Insertion sort (ordenação por inserção):
+
+Varre o vetor do início ao fim e, a cada novo elemento encontrado, o coloca na posição correta no subvetor já visitado.
+
+void insertionSort(int v[], int n) {
+    int i, j, aux;
+
+    for (j=2; j<=n; j++) {
+        aux = v[j];
+        for (i = j-1; i >= 1 && aux < v[i]; i--)
+            v[i+1] = v[i];
+        v[i+1] = aux; /* por que i+1? */
+}
+
+Invariantes principais, no início de cada iteração:
+
+a - o vetor é uma permutação do original,
+
+b - v[0 .. j - 1] está ordenado.
+
+Prova por indução:
+
+ - Base: invariantes valem trivialmente no início da primeira iteração.
+
+ - H.I.: no início da j-ésima iteração o vetor é uma permutação do original e v[0 .. j - 1] está ordenado.
+
+ - Passo: Pela H.I. v[0 .. j - 1] está ordenado. Durante a j-ésima iteração o algoritmo salva o valor de v[j] em aux, desloca em uma posição para a direita todos os elementos maiores que aux e insere aux na posição liberada. Todos os elementos a esquerda de aux continuam ordenados. Todos os elementos a direita de aux até a posição j continuam ordenados. Como aux é maior que os primeiros e menor ou igual que os segundos, o vetor v[0 .. j] está ordenado (invariante (b) vale no início da próxima iteração). Como nenhum elemento foi removido ou duplicado, mas apenas permutado, invariante (a) continua válido.
+
+
+Eficiência:
+
+ - no melhor caso é O(n).
+
+    - Por exemplo, vetor está ordenado ou tem apenas adjacentes fora de ordem.
+
+ - no pior caso é O(n^2).
+
+    - Por exemplo, vetor está em ordem decrescente.
+
+
+Ordenação é estável.
+
+ - O que acontece se trocarmos "aux < v[i]" por "aux <= v[i]"? Continua ordenando? Continua estável?
+
+
+Ordenação é in place.
+
+ - Só usa auxiliares de tamanho constante.
+
+
+Animation: https://www.youtube.com/watch?v=6Hc8eEoJ9Rk

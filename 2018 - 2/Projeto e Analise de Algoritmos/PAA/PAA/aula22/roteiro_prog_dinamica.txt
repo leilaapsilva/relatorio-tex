@@ -1,0 +1,11 @@
+Para projetar um algoritmo de programação dinâmica para um problema usamos os seguintes passos:
+
+ - imaginar uma solução ótima para o problema
+ 
+ - analisar esta solução em busca da subestrutura ótima do problema
+ 
+ - obter a recorrência a partir da demonstração da subestrutura ótima
+ 
+ - derivar um algoritmo iterativo que, guiado pela recorrência, preenche a tabela começando pelos subproblemas menores
+
+

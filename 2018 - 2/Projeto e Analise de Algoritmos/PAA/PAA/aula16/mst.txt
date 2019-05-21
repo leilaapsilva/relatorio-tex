@@ -1,0 +1,47 @@
+Problema da Árvore Geradora Mínima (MST)
+
+ - Um dos problemas mais básicos de projeto de redes
+ 
+ - Uma ótima oportunidade para exercitar o projeto de algoritmos gulosos
+
+
+
+Entrada:
+
+ - G = (V, E)
+ 
+ - custo c(e) em cada arestas e \in E
+ 
+Solução:
+
+ - Uma árvore geradora T de custo mínimo, isto é, 
+ 
+    - T não pode ter ciclos
+
+	- deve existir caminho em T entre qualquer par de vértices em V
+
+    - custo de T = \sum_{e \in T} c(e)
+
+
+
+Exemplo:
+
+
+
+Suposições para simplificar:
+
+ - G é conexo
+ 
+    - Caso contrário não faz sentido falar em árvore geradora mínima, mas sim em floresta geradora mínima.
+	
+	- É fácil identificar os componentes conexos usando busca em largura ou em profundidade.
+	
+ - Custos das arestas são distintos
+ 
+    - Algoritmos continuam corretos e eficientes quando isso não é verdade
+	
+	- Mas as provas ficam mais chatas
+	
+	   - Basicamente porque não conseguimos usar argumentos por contradição e precisamos usar argumentos iterativos que são mais enrolados.
+
+

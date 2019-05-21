@@ -1,0 +1,48 @@
+Problema da ordenação:
+
+ - Considere um vetor v de inteiros com n elementos.
+
+ - Dizemos que ele está em ordem crescente se v[0] <= v[1] <= ... <= v[n-1].
+
+ - Um algoritmo para este problema deve rearranjar (permutar) os elementos de v de modo a torná-lo crescente.
+
+
+
+Para cada algoritmo de ordenação veremos:
+
+ - Ideia e pseudocódigo, 
+
+ - Invariante e corretude, 
+
+    - Prova por indução no número de iterações
+	
+	  Base: invariantes devem valer no início da primeira iteração
+	  
+	  H.I.: supomos que os invariantes valem no início na iteração k
+	  
+	  Passo: mostramos que eles continuam valendo no início da iteração k+1
+	
+	- O fato deles valerem quando o algoritmo sai do laço deve implicar o resultado desejado, neste caso que o vetor está ordenado.
+
+
+ - Eficiência no melhor e pior casos, 
+
+ - Estabilidade: 
+
+    - Se o algoritmo não inverte valores identicos no vetor. 
+
+ - In place: 
+
+    - Se o algoritmo não usa estruturas auxiliares proporcionais ao tamanho da entrada. 
+
+
+ - Supondo uma máquina de 10GHz, ou seja, que executa 10^10 operações por segundo
+
+		n   		n^2 		t(s)        		n lg n		t(s)	
+		10  		100 		10^-8       		40  		4*10^-9
+		100 		10^4		10^-6       		700 		7*10-8
+		1000		10^6		10^-4       		10^4		10^-6
+		10^6		10^12		10^2        		2*10^7		2*10-3
+		10^9		10^18		10^8 ~= 3.17 anos	3*10^10		3
+
+

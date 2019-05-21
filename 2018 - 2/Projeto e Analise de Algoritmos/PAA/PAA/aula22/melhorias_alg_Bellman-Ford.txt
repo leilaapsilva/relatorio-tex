@@ -1,0 +1,24 @@
+Duas melhorias interessantes no algoritmo de Bellman-Ford são:
+
+ 1) parar assim que os valores A[i, v] não mudarem de uma iteração para outra
+ 
+ 2) utilizar vetores A[v] e B[v], para guardar o valor do caminho mínimo até v e o predecessor de v nesse caminho
+
+
+
+algMelhoradoBellman-Ford(G=(V,E), c, s) {
+
+	para v em V
+		A[v] = +\infinity
+	A[s] = 0
+	
+	para i = 1 até n
+		para v em V
+			A[v] = min { A[v] , min_{(w,v) \in E} {A[w] + c(w,v) } }
+			B[v] é atualizado para w se foi este vértice que minimizou a recorrência
+		se não houve mudança em A nesta iteração, devolva A e B
+	
+	devolva existe ciclo negativo
+}
+
+

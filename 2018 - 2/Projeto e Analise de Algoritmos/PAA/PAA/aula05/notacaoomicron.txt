@@ -1,0 +1,92 @@
+Notação O:
+
+ - Considere uma função T definida nos inteiros positivos
+ 
+ - T(n) = O(f(n))
+    - significa que, para um n suficientemente grande, uma constante vezes f(n) limita superiormente T(n)
+
+ - Exemplo usando um gráfico
+ 
+ - Definição formal:
+ 
+    - T(n) = O(f(n)) se existem constantes n_0 e c > 0 tais que T(n) <= c * f(n) para todo n >= n_0
+	
+	   - note que n_0 e c não podem depender de n
+
+
+
+Exemplo 1:
+
+ - Considere a análise do mergesort que realizamos anteriormente
+
+ - T(n) = 10 * n * lg n + 10 * n é O(n lg n)?
+
+Prova:
+ - Queremos encontrar constantes c e n_0 tais que, para todo n >= n_0, temos T(n) = 10 * n * lg n + 10 * n <= c * n lg n.
+ 
+ - Para tanto, vamos manipular T(n) tentando simplificá-la usando limitantes superiores
+
+T(n) = 10 * n * lg n + 10 * n 
+     <= 10 * n * lg n + 10 * n * lg n 	(para n >= 2)
+	 = 20 * n * lg n
+
+ - Como, para c = 20 e n_0 = 2 temos T(n) <= c * (n log n), concluímos que T(n) é O(n lg n)
+
+
+
+Exemplo 2:
+
+ - T(n) = a_k n^k + a_k-1 n^k-1 + a_k-2 n^k-2 + ... + a_1 n + a_0 é O(n^k)?
+ 
+Prova:
+ - Queremos encontrar constantes c e n_0 tais que, para todo n >= n_0, temos T(n) <= c * n^k.
+ 
+ - Para tanto, vamos manipular T(n) tentando simplificá-la usando limitantes superiores
+
+ - T(n) = a_k n^k + a_k-1 n^k-1 + a_k-2 n^k-2 + ... + a_1 n + a_0
+        <= |a_k| n^k + |a_k-1| n^k-1 + |a_k-2| n^k-2 + ... + |a_1| n + |a_0|
+		<= (|a_k| + |a_k-1| + |a_k-2| + ... + |a_1| + |a_0|) n^k
+
+ - Como, para c = |a_k| + |a_k-1| + |a_k-2| + ... + |a_1| + |a_0| e n_0 = 1 temos T(n) <= c * n^k, concluímos que T(n) é O(n lg n)
+
+
+
+Exemplo 3:
+
+ - T(n) = n^k não é O(n^k-1)
+ 
+Prova:
+ - Por contradição, vamos supor que T(n) = n^k é O(n^k-1), 
+ 
+ - ou seja, supomos que existem c e n_0 tais que T(n) = n^k <= c * n^k-1 para n >= n_0
+ 
+ - Mas, neste caso, n^k <= c * n^k-1 --> n <= c, o que contraria o resultado valer para todo n >= n_0, logo temos um absurdo.
+
+
+
+Exemplo 4:
+
+ - T(n) = 2^(n+10) é O(2^n)?
+ 
+Prova:
+ - Queremos encontrar constantes c e n_0 tais que, para todo n >= n_0, temos T(n) <= c * 2^n
+ 
+T(n) = 2^(n+10)
+     = 2^n * 2^10
+
+ - Portanto, para c = 2^10 e n_0 = 1 temos T(n) <= c * 2^n
+
+
+
+Exemplo 5:
+
+ - T(n) = 2^(10n) é O(2^n)?
+
+Prova:
+ - Por contradição, vamos supor que T(n) = 2^(10n) é O(2^n), 
+ 
+ - ou seja, supomos que existem c e n_0 tais que T(n) = 2^(10n) <= c * 2^n para n >= n_0
+ 
+ - Mas, neste caso, 2^(10n)/2^n <= c --> 2^9n <= c --> 9n <= lg c --> n <= (1/9) lg c, o que é contraria o resultado valer para todo n >= n_0, logo temos um absurdo.
+
+

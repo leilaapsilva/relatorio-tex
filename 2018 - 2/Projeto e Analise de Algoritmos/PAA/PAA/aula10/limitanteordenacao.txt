@@ -1,0 +1,58 @@
+Algoritmos de ordenação por comparação podem ser representados por árvores binárias de decisão, em que cada nó interno da árvore corresponde a uma comparação entre dois elementos e cada folha corresponde a uma possível ordenação (permutação) dos elementos.
+
+A altura desta árvore, ou seja, o caminho mais longo da raíz até uma folha corresponde a um limitante inferior para a complexidade de tempo de pior caso do algoritmo.
+
+Agora vamos usar esta representação em árvore para obter um limitante inferior para a complexidade de tempo de qualquer algoritmo de ordenação baseado apenas em comparações de elementos. 
+
+
+
+A ideia é a seguinte:
+
+ - dado um vetor com n elementos, existem n! possíveis permutações que correspondem à versão ordenada deste vetor.
+ 
+    - isso porque na versão ordenada qualquer um dos n elementos pode ser o primeiro, qualquer dos n-1 restantes pode ser o segundo, e assim por diante.
+ 
+ - como a princípio não sabemos qual destas permutações é a correta, todas elas tem que aparecer como folhas na árvore de decisão binária correspondente ao algoritmo genérico sendo analisado.
+ 
+    - caso contrário nosso algoritmo daria a resposta errada caso se deparasse com essa entrada, ou seja, ele devolveria uma outra sequência que não estaria em ordem.
+ 
+ - isso quer dizer que nossa árvore tem n! folhas.
+ 
+ - Agora queremos relacionar o número de folhas que uma árvore binária pode ter com sua altura h, já que esta é um limitante inferior para a complexidade do algoritmo em questão.
+ 
+ - Sabemos que, por melhor balanceada que seja uma árvore binária, ela pode ter no máximo 2^h folhas, com h começando em 0.
+ 
+    - Dá pra provar isso por indução:
+	
+       - Caso base: h = 0 temos #(folhas árvore de altura 0) = 1 = 2^0
+	   
+	   - Hipótese de Indução (H.I.): para h' < h temos (#folhas árvore de altura h') = 2^h'
+	   
+	   - Passo: Dada uma árvore completa de altura h, temos que tanto a subárvore esquerda quanto a subárvore direita são árvores de altura h-1. Pela hipótese de indução, cada uma tem #folhas = 2^(h-1). Somando as folhas das duas subárvores temos que a árvore completa tem #folhas = 2*2^h-1 = 2^h.
+ 
+ - Resolvendo a inequação:
+ 
+	# folhas da árvore = 2^h >= # permutações da sequência que estamos ordenando = n!
+	2^h >= n!
+	
+ - note que 
+ 
+	n! = n * (n-1) * (n-2) * ... * (n/2 + 1) * (n/2) * (n/2 - 1) * ... * 2 * 1
+	   >= n/2 * n/2 * n/2 * ... * n/2 (n/2 repetições de n/2)
+	   = (n/2)^(n/2)
+
+ - portanto
+ 
+	2^h >= n!
+	    >= (n/2)^(n/2)
+		
+ - aplicando lg dos dois lados
+ 
+	h >= (n/2) lg (n/2) = Omega(n log n)
+	
+Assim, chegamos ao resultado de que qualquer algoritmo de ordenação por comparação precisa realizar pelo menos da ordem de n log n comparações para ordenar uma sequência com n elementos.
+
+Resumindo a ideia da demonstração, temos que a árvore de decisão de qualquer algoritmo precisa ter n! folhas e, para tanto, sua altura precisa ser pelo menos Omega(n log n).
+
+
+

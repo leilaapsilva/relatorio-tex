@@ -1,0 +1,155 @@
+Relembrando o problema da árvore geradora mínima
+
+Entrada:
+
+ - G = (V, E)
+ 
+ - custo c(e) em cada arestas e \in E
+ 
+Solução:
+
+ - Uma árvore geradora T de custo mínimo, isto é, 
+ 
+    - T não pode ter ciclos
+
+	- deve existir caminho em T entre qualquer par de vértices em V
+
+    - custo de T = \sum_{e \in T} c(e)
+
+
+
+Nosso guia no projeto de algoritmos gulosos para esse problema continua sendo a Propriedade do corte:
+
+ - Dado um grafo G = (V, E), considere uma aresta e \in E. Suponha que existe um corte (A, B) tal que e é a aresta mais barata de G que cruza este corte.
+ 
+    - Um corte (A, B) é uma partição dos vértices do grafo
+	
+    - Cruzar o corte significa que cada extremo da aresta está em uma das partes do corte
+	
+ - Então e está NA árvore geradora mínima de G.
+ 
+    - Podemos falar DA árvore geradora mínima porque supomos que não existem arestas com mesmo custo.
+
+
+
+Primeiro, vamos ver um exemplo do algoritmo de Kruskal
+
+
+
+Pseudocódigo do algoritmo de Kruskal
+
+Kruskal (G=(V,E), custos c) {
+	ordene as arestas em ordem crescente de custo
+	
+	T = \emptyset
+	
+	Para todas as arestas e = (u, v) em ordem crescente de custo
+		se T unida com e não forma um ciclo
+			Adicione e em T
+	
+	devolva T
+}
+
+
+
+Prova de corretude do algoritmo de Kruskal
+
+ - T não possui ciclos
+ 
+    - Decorre direto do algoritmo
+
+ - T é geradora (e conexa)
+ 
+    - Do lema do corte vazio temos que, se o grafo for conexo então não existe um corte vazio.
+	
+	- Fixe um corte (A, B) qualquer e considere a primeira vez que o algoritmo de Kruskal considera uma aresta deste corte. 
+	
+	   - Pelo Corolário da Aresta Solitária, sabemos que esta aresta não gera um ciclo em T.
+	   
+	   - Portanto, o algoritmo vai adicionar esta aresta a T.
+	   
+	- Como isso vale para um corte (A, B) qualquer, temos que a árvore T produzida pelo algoritmo terá arestas cruzando qualquer corte. Assim, ela é conexa e gera o grafo G.
+
+ - T é mínima
+ 
+    - Vamos mostrar que toda aresta escolhida pelo algoritmo de Kruskal respeita a propriedade do Corte.
+	
+	- Considere uma aresta e = (u, v) qualquer que foi escolhida pelo algoritmo.
+	
+	- Note que não pode haver caminho em T que vai de u para v.
+	
+	   - Caso contrário, e formaria um ciclo em T e não seria escolhida pelo algoritmo.
+	   
+	- Seja A o conjunto de todos os vértices alcançáveis a partir de u em T
+	
+	   - E seja B o restante dos vértices.
+	   
+	- Por construção, não existem arestas em T com uma ponta em A e outra em B.
+	
+	   - Caso contrário, A alcançaria mais vértices.
+	
+	- Pelo Corolário da Aresta Solitária, o algoritmo adiciona a T a primeira aresta do corte (A, B) que for considerada, já que tal aresta não pode formar ciclo.
+	
+	- Portanto, e = (u, v) é a primeira aresta deste corte que o algoritmo considerou. 
+	
+	- Como o algoritmo percorre as arestas em ordem crescente de custo, e = (u, v) é a aresta de menor custo que atravessa esse corte.
+	
+	   - Logo, pela Propriedade do Corte ela pertece à árvore geradora mínima do grafo.
+
+
+
+Implementação e eficiência do algoritmo de Kruskal
+
+ - A implementação mais simples do algoritmo que apresentamos leva tempo O(m log n) + O(n*m) = O(n*m)
+ 
+    - O custo da ordenação no início é dominado pelo laço principal que percorre todas as arestas
+	
+	   - Curiosidade: Por que escrevi que ordenar m arestas leva tempo O(m log n) e não O(m log m)? R: Porque assintoticamente O(log m) = O(log n) já que m <= n^2 e log n^2 = 2 log n.
+	
+	- Note que, para cada aresta temos que verificar se ela não forma ciclo, o que pode ser feito com um algoritmo de busca em grafo.
+	
+	   - Esses algoritmos levam tempo proporcional ao tamanho do grafo, i.e., número de vértice mais número de arestas. 
+	   
+	   - No entanto, estamos interessados em verificar a presença de ciclos na floresta T sendo construída. 
+	   
+	      - E esta tem o número de arestas limitado pelo número de vértices. 
+		  
+		  - Por isso o algoritmo levará tempo proporcional ao número de vértices do grafo original.
+
+
+
+Pseudocódigo do algoritmo de Kruskal usando estrutura de dados Union-Find
+
+KruskalcomUnionFind (G=(V,E), custos c) {
+	para todo v \in V
+		makeset(v)
+	
+	ordene as arestas em ordem crescente de custo
+	
+	T = \emptyset
+	
+	Para todas as arestas e = (u, v) em ordem crescente de custo
+		se find(u) != find(v)
+			adicione e em T
+			union(u, v)
+	
+	devolva T
+}
+
+Análise de eficiência do algoritmo de Kruskal implementado com Union-Find
+
+ - makeset leva tempo O(1), portanto, a inicialização leva tempo O(n)
+ 
+ - ordenar as arestas leva tempo O(m log n)
+ 
+ - o laço principal é executado O(m) vezes
+ 
+    - Na implementação do Union-Find usando Union by Rank cada operação leva tempo O(log n)
+	
+	- Em cada iteração do laço são executadas duas operações find e uma union
+	
+	- Portanto, o tempo total do laço principal é O(m log n)
+	
+ - Assim, o tempo de execução do algoritmo é O(m log n)
+
+

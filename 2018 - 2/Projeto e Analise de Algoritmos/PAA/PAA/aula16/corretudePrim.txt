@@ -1,0 +1,47 @@
+Prova de corretude do algoritmo de Prim
+
+
+
+1) Começamos mostrando que o algoritmo produz uma árvore T, ou seja, que T não possui ciclos
+ 
+ - Para tanto basta mostrar que nenhuma aresta escolhida pelo algoritmo pertence a algum ciclos
+ 
+ - Existem resultados auxiliares que podem nos ajudar
+ 
+Lema da Travessia Par - Se um corte (A, B) atravessa um ciclo C, então C tem um número par de arestas atravessando o corte.
+
+Prova: Note que, se começarmos a percorrer o ciclo C, cada vez que passamos por uma das arestas que atravessa o corte (A, B) nós mudamos de parte, e só nesse caso mudamos de parte. Assim, depois de atravessarmos um número ímpar de arestas do ciclo que passam pelo corte estamos numa parte diferente da que começamos. Como o ciclo tem que fechar, precisamos atravessar um número par dessas arestas para voltar ao começo. Portanto, o corte tem que atravessar um número par de arestas do ciclo C.
+
+Corolário da Aresta Solitária: Se e é a única aresta atravessando um certo corte (A, B) então e não pode pertencer a um ciclo.
+
+Prova: Se fosse o caso, pelo lema anterior, ao menos mais uma aresta também teria que atravessar o corte (A, B).
+
+ - Observe que toda aresta que o algoritmo escolhe é a única aresta que atravessa o corte definido pelos vértices (X, V\X).
+ 
+ - Assim, usando o Corolário da Aresta Solitária temos que as arestas escolhidas pelo algoritmo não formam ciclos.
+
+ - De fato, também precisamos mostrar que T é conexo. Mas isso é fácil de verificar, já que toda aresta que o algoritmo escolhe tem uma ponta em X.
+
+
+
+2) Agora vamos mostrar que T é geradora, ou seja, que alcança todas os vértices do grafo
+
+ - Como o algoritmo busca novas arestas que atravessam o corte (X, V\X) a cada iteração, para que ele deixe de alcançar algum vértice deve ser o caso de existir um corte vazio.
+ 
+ - No entanto, existe um resultado auxiliar que pode nos ajudar.
+ 
+Lema do Corte Vazio: Um grafo não está conectado <--> existe um corte (A, B) que não é atravessado por arestas
+
+Prova: (<--) Supondo que existe tal corte, basta escolher um vértice u de A e um vértice B de v. Como nenhuma aresta atravessa (A, B), não existe caminho de u até v, logo o grafo não é conexo.
+
+(-->) Supondo que o grafo não é conexo, seja u e v um par que não está conectado. Chamemos de A todos os vértices alcançáveis a partir de u (v certamente não está em A) e definimos B = V\A. Por construção, (A, B) não é atravessado por qualquer aresta, caso contrário outros vértices teriam sido acrescentados ao conjunto A.
+
+ - Como sabemos que o grafo G=(V, E) é conexo, usando o Lema do Corte Vazio podemos concluir que ele não tem qualquer corte (A, B) que não é atravessado por arestas. Portanto, o algoritmo nunca vai parar no meio de uma iteração por não encontrar arestas atravessando o corte (X, V\X).
+
+
+
+3) Finalmente mostramos que T tem custo mínimo
+
+ - Esse resultado sai direto da Propriedade do Corte, já que toda aresta escolhida pelo algoritmo é a mais barata de um corte (X, V\X) e pela propriedade deve estar na árvore geradora mínima.
+
+

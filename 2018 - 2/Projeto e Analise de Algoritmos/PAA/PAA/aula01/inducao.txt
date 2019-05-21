@@ -1,0 +1,95 @@
+Exemplo 0 - Mostrar que 2^0 + 2^1 + 2^2 + ... + 2^n = 2^n+1 - 1
+
+Base: quando n=0 temos \sum_i=0^n 2^i = 2^0 = 1 = 2^(0+1) - 1 = 2^(n+1) - 1
+
+H.I.: \sum_i=0^n-1 2^i = 2^n - 1
+
+Passo: \sum_i=0^n 2^i = 2^0 + 2^1 + 2^2 + ... + 2^n
+                      = 2^0 + 2^1 + 2^2 + ... + 2^(n-1) + 2^n
+					  = 2^n - 1 + 2^n
+					  = 2*2^n - 1
+					  = 2^(n+1) - 1
+
+
+
+Na demonstração por indução queremos provar que:
+ - uma propriedade P 
+ - associada a um parâmetro n
+ - vale para todo n natural
+ 
+Para tanto seguimos a seguinte estrutura:
+
+Base: mostramos que P(1) vale.
+
+H.I.: supomos que P(n-1) vale.
+
+Passo: mostramos que P(n) vale a partir da Hipótese de Indução (H.I).
+
+
+
+Exemplo 1 - Mostrar que a soma dos n primeiros naturais ímpares é n^2
+
+Base: quando n = 1 temos \sum_i=1^n 2(i-1)+1 = 1 = 1^2 = n^2
+
+H.I.: \sum_i=1^n-1 2(i-1)+1 = (n-1)^2
+
+Passo: \sum_i=1^n 2(i-1)+1 = \sum_i=1^n-1 2(i-1)+1 + 2(n-1)+1
+                           = (n-1)^2 + 2n-2+1
+						   = n^2 - 2n + 1 + 2n - 1
+						   = n^2
+
+
+
+Exemplo 2 - Mostrar que para naturais x e n, x^n - 1 é divisível por x - 1.
+
+Base: quando n = 1 temos x^n - 1 = x^1 - 1 = x - 1
+
+H.I.: x^(n-1) - 1 é divisível por x - 1, ou seja, existe um inteiro k tal que x^(n-1) - 1 = k * (x - 1)
+
+Passo: x^n - 1 = x * x^(n-1) - 1
+               = x * x^(n-1) - 1 + x * (-1) - x * (-1)
+			   = x * x^(n-1) - x - 1 + x
+			   = x * (x^(n-1) - 1) + (x - 1)
+			   = x * (k * (x - 1)) + (x - 1)
+			   = (x * k + 1) * (x - 1)
+
+
+
+Exemplo 3 - Mostrar que (1 + x)^n >= 1 + nx para todo natural n e real x tal que 1 + x > 0.
+
+Base: quando n = 1 temos (1 + x)^n = (1 + x)^1 = 1 + x = 1 + nx
+
+H.I.: (1 + x)^(n-1) >= 1 + (n-1)x
+
+Passo: (1 + x)^n = (1 + x)*(1 + x)^(n-1)
+                 >= (1 + x)*(1 + (n-1)x)
+				 = 1 + (n-1)x + x + (n-1)x^2
+				 = 1 + nx
+
+
+
+Exemplo 4 - Mostrar que o número de regiões do plano cortado por n retas em posição geral é T_n = n(n+1)/2 + 1
+Obs: um conjunto de retas está em posição geral se nenhum par de retas é paralelo e três ou mais retas não se cruzam num mesmo ponto.
+
+Base: quando n = 1 temos T_1 = 1(1+1)/2 + 1 = 2
+
+H.I.: T_n = n(n+1)/2 + 1
+
+Passo: T_n+1 = n(n+1)/2 + 1 + (n + 1)
+             = n(n+1)/2 + 1 + 2(n + 1)/2
+             = (n+2)(n+1)/2 + 1
+
+
+
+Exemplo 5 - Mostrar que o S_n = 1/2 + 1/4 + 1/8 + ... + 1/2^n < 1
+
+Base: quando n = 1 temos S_1 = 1/2^1 = 1/2 < 1
+
+H.I.: S_n < 1
+
+Passo: S_n+1 = 1/2 + 1/4 + 1/8 + ... + 1/2^n + 1/2^n+1
+             = 1/2 + 1/2 * (1/2 + 1/4 + ... + 1/2^n-1 + 1/2^n)
+			 < 1/2 + 1/2 * 1
+			 = 1
+
+

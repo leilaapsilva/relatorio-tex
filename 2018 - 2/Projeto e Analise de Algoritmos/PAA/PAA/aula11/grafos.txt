@@ -1,0 +1,97 @@
+Grafos são uma estrutura matemática
+
+ - E também uma estrutura de dados
+
+
+
+São formados por dois componentes 
+
+ - um conjunto de vértices (ou nós) V
+ 
+ - um conjunto de pares de vértices E
+ 
+    - se estes são não ordenados os chamamos de arestas
+	
+	   - e o grafo é dito não orientado
+	
+	- se estes são ordenados os chamamos de arcos
+	
+	   - e o grafo é dito orientado (ou dirigido)
+
+
+ 
+Em geral, grafos são representados compactamente assim
+
+ - G = (V, E)
+
+Usamos 
+
+ - n = |V| para indicar o número de vértices
+ 
+ - m = [E| para indicar o número de arestas
+
+
+
+Grafos são extremamente relevantes tanto na matemática quanto na computação
+
+ - pois conseguem modelar uma imensa variedade de cenários, como:
+ 
+   - redes de transporte
+	
+	- redes de comunicação
+	
+	- a própria Web
+	
+	- redes sociais
+	
+	- redes lógicas
+	
+	- relações de dependência
+	
+	- árvores
+	
+	- mapas
+	
+ - de modo mais geral, grafos modelam 
+ 
+   - relações entre pares de um mesmo conjunto, 
+	
+	- ou relações entre pares de diferentes conjuntos, 
+	
+ - o que abre uma imensa gama de possibilidades.
+
+
+
+Grafos podem ser densos ou esparsos, no que diz respeito ao número de arestas que estes possuem
+
+ - um grafo conexo e sem arestas múltiplas possui
+ 
+   - no mínimo n-1 arestas 
+	
+	- no máximo n(n-1)/2 arestas
+	
+ - Assim, o número de arestas de um grafo pode variar entre Theta(n) e Theta(n^2)
+ 
+ - Dizemos que um grafo é esparso quando seu número de aresta está próximo a n ou até n log n
+ 
+ - Dizemos que ele é denso quando o número de arestas é mais próximo de n^2 ou pelo menos superior n^3/2
+ 
+    - Embora onde passa a linha exatamente seja arbitrário
+
+
+
+Existem duas representações concorrentes para grafos
+
+ - matrizes de adjacência
+ 
+    - na qual usamos uma matriz com n linhas e n colunas
+	
+	 - e o valor da célula i j indica se existe uma aresta entre os vértices i e j
+ 
+ - listas de adjacência
+ 
+   - na qual temos um vetor de vértices
+	
+	- e para cada vértice temos uma lista com as arestas que tem uma ponta neste vértice 
+
+

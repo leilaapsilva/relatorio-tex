@@ -1,0 +1,123 @@
+Técnica de projeto algoritmos:
+
+ - Algoritmos gulosos são algoritmos que iterativamente realizam escolhas míopes esperando atingir o ótimo.
+
+Problema da Árvore Geradora Mínima:
+
+ - Dado um grafo com custos nas arestas queremos uma árvore geradora de custo mínimo.
+
+
+
+Propriedade do corte nos dá um critério para escolhas míopes que levam ao ótimo no caso do problema da árvore geradora mínima
+
+ - Dado um grafo G = (V, E), considere uma aresta e \in E. Suponha que existe um corte (A, B) tal que e é a aresta mais barata de G que cruza este corte. Então e está na árvore geradora mínima de G.
+
+
+
+Podemos derivar diversos algoritmos que utilizam essa propriedade.
+
+ - O primeiro que veremos é o algoritmo de Prim.
+
+
+
+Exemplo do algoritmo de Prim.
+
+
+
+Pseudocódigo do algoritmo de Prim.
+
+Prim (G=(V,E), custos c) {
+	X = {s}
+	T = \emptyset
+	
+	enquanto X != V
+		seja e = (u,v) a aresta de menor custo c(e) com u \in X e v \not \in X
+		Adicione e em T
+		Adicione v em X
+	
+	devolva T
+}
+
+
+
+Prova de corretude do algoritmo de Prim
+
+ - Primeiro mostramos que ele produz uma árvore T que é geradora, ou seja
+
+    - T não possui ciclos
+ 
+    - T alcança todos os vértices do grafo
+
+ - Então mostramos que essa T é de custo mínimo
+ 
+    - Usando a propriedade do corte, já que toda aresta escolhida é a mais barata de um corte
+
+
+
+Implementação e eficiência do algoritmo de Prim
+
+ - A implementação mais simples do algoritmo que apresentamos leva tempo O(n*m), o que já não é trivial pois o número de árvores geradoras de um grafo é imenso.
+
+ - Assim como no caso do algoritmo de Dijkstra, neste algoritmo estamos sucessivamente escolhendo elementos mínimos
+ 
+ - Por isso, utilizamos um heap de mínimo na implementação
+ 
+ - Mas, a implementação mais simples e eficiente utiliza este heap para armazenar vértices, e não arestas
+ 
+ - Pseudocódigo do algoritmo de Prim usando heap de mínimo
+ 
+PrimcomHeap (G=(V,E), custos c) {
+	X = \emptyset
+	T = \emptyset
+	para todo v \in V
+		d[v] = +\inf
+		aresta[v] = null
+	escolha qualquer vértice inicial s
+	d[s] = 0
+	
+	construa um heap de mínimo H com todos os vértices e chaves d[]
+	
+	enquanto o heap não estiver vazio
+		remova o vértice v que é mínimo do heap
+        Adicione v em X
+			Adicione aresta[v] em T
+			para cada aresta (v, w)
+				se c(v, w) < d[w]
+					d[w] = c(v, w)
+					aresta[w] = (v, w)
+					atualize a posição de w no heap
+	
+	devolva T
+}
+ 
+Análise de eficiência do algoritmo de Prim implementado com Heap
+
+ - a inicialização leva tempo O(n)
+
+ - o laço principal é executado O(n) vezes, já que em cada iteração um vértice é removido do heap
+
+    - cada operação de remoção do heap custa O(log n)
+
+    - Assim, essas operações custam no total O(n log n)
+
+ - cada aresta do grafo pode desencadear uma operação de atualização de chave no heap
+
+    - cada uma dessas operações custa O(log n)
+
+    - como são m arestas, no total essas operações custam O(m log n)
+
+ - Portanto, a complexidade de tempo do algoritmo é O(m log n), que é quase linear no tamanho do grafo.
+
+
+
+Uma outra maneira eficiente de implementar este algoritmo sem implementar funções mais sofisticadas para atualizar elementos internos a um heap é utilizando o seguinte truque:
+
+ - cada vez que encontrar uma aresta (v, w) que atinge um vértice w você adiciona o vértice w no heap com chave c(v, w), sem se preocupar se w já estava no heap, se ele já foi removido, ou se c(v, w) é menor que a chave atual de w.
+ 
+ - sempre que remover alguém do heap, verifique se este vértice já foi removido anteriormente. Se for o caso, ignore o vértice e remova o próximo.
+ 
+ - Assim, a corretude do algoritmo está mantida, pois quando um vértice é considerado é porque é a primeira vez que ele está sendo alcançado e, portanto, a aresta associada a ele é a aresta de custo mínimo que cruza o corte corrente.
+ 
+ - A eficiência também se mantém, pois embora muito mais elementos possam entrar no heap, o número de inserções e remoções no mesmo ainda está restrito ao número de arestas m, portanto, teremos no máximo m inserções e m remoções, que no total levam tempo O(m log n).
+
+

@@ -1,0 +1,46 @@
+Análise de pior caso:
+
+ - resultado independe da entrada
+ - mais simples de analisar
+ 
+    - em contraste com análise de caso médio, por exemplo
+ 
+ - Por não exigir conhecimento do problema
+    - no sentido do que é uma entrada típica 
+    - análise de pior caso é apropriada para algoritmos de propósito geral
+
+
+
+Damos pouca atenção para constantes multiplicativas e termos de ordem menor:
+
+ - simplifica a análise
+ - se preocupar com as constantes seria inapropriado, já que elas dependem de detalhes de implementação, linguagem, compilador e arquitetura
+ - termos de ordem menor se tornam irrelevantes quando a entrada cresce, que é o próximo tópico
+ - análise comparativa entre algoritmos continua precisa mesmo com essas simplificações
+ 
+ - Obs: constantes são relevantes na prática. Mas, em geral, elas tem um impacto secundário em relação à escolha de algoritmos e estruturas de dados adequadas para resolver um problema
+    - Ex.: um BubbleSort super polido ainda será muito pior que um MergeSort mal feito para ordenar vetores grandes
+
+
+
+Estamos interessados no comportamento dos algoritmos para entradas grandes:
+
+ - caso contrário força bruta resolve
+
+ - também por isso o crescimento do tempo em função de n importa mais do que constantes
+    - para n grande as constantes se tornam proporcionalmente desprezíveis
+
+
+
+Neste curso estamos interessados em algoritmos rápidos:
+
+ - vamos usar a seguinte definição matemática como sinônimo de algoritmo rápido
+ 
+    - Um algoritmo cujo tempo de execução no pior caso cresce devagar em função do tamanho da entrada
+	   - Por devagar queremos dizer perto de linear
+	   
+    - Essa definição matemática é vantajosa por apresentar duas características
+	   - É tratável
+	   - É preditiva
+
+

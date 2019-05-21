@@ -1,0 +1,13 @@
+Temos três estratégias principais para lidar com problemas NP-Completos (ou NP-Difíceis):
+
+ 1) focar em casos particulares do problema que sejam tratáveis
+ 
+    - por exemplo, atacando o problema em grafos particulares como árvores
+ 
+ 2) usar heurísticas que não garantem a solução ótima mas executam em tempo polinomial
+ 
+    - algoritmos gulosos costumam ser úteis aqui
+ 
+ 3) usar algoritmos exatos cujo pior caso é exponencial, mas procurar fazer melhor que a simples força bruta
+
+

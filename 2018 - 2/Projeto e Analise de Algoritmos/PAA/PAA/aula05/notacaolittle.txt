@@ -1,0 +1,47 @@
+Notação little omicron:
+
+ - Considere uma função T definida nos inteiros positivos
+ 
+ - T(n) = littleomicron(f(n))
+    - significa que para qualquer constante c > 0 existe n_0 > 0 tal que T(n) <= c * f(n) para todo n >= n_0
+
+
+
+Exemplo 1:
+
+ - T(n) = n^(k-1) littleomicron(n^k), para qualquer k >= 1?
+ 
+Prova:
+ - Tome uma constante c > 0 arbitrária. Queremos encontrar um limitante inferior n_0 para n
+ 
+T(n) = n^(k-1) <= c * n^k --> 1 <= c * n --> n >= 1/c
+
+Escolhendo n_0 = 1/c temos T(n) <= c * n^k.
+
+Como c foi escolhido arbitrariamente a prova está concluída.
+
+
+
+Notação little omega:
+
+ - Considere uma função T definida nos inteiros positivos
+ 
+ - T(n) = littleomega(f(n))
+    - significa que para qualquer constante c > 0 existe n_0 > 0 tal que T(n) >= c * f(n) para todo n >= n_0
+
+
+
+Exemplo 2:
+
+ - T(n) = n^k littleomega(n^(k-1)), para qualquer k >= 1?
+ 
+Prova:
+ - Tome uma constante c > 0 arbitrária. Queremos encontrar um limitante inferior n_0 para n
+ 
+T(n) = n^k >= c * n^(k-1) --> n >= c
+
+Escolhendo n_0 = c temos T(n) >= c * n^(k-1).
+
+Como c foi escolhido arbitrariamente a prova está concluída.
+
+

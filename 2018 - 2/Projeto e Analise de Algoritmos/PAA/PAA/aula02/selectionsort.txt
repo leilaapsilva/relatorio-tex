@@ -1,0 +1,53 @@
+Selection sort (ordenação por seleção):
+
+Varre o vetor do início ao fim e, a cada nova iteração, busca o mínimo do subvetor restante e o coloca na posição corrente.
+
+void selectionSort(int v[], int n) {
+    int i, j, ind_min, aux;
+
+    for (i = 1; i < n; i++) {
+        ind_min = i;
+        for (j = i+1; j <= n; j++)
+            if (v[j] < v[ind_min])
+                ind_min = j;
+        aux = v[i];
+        v[i] = v[ind_min];
+        v[ind_min] = aux;
+    }
+}
+
+Invariantes principais, no início de cada iteração:
+
+a - o vetor é uma permutação do original,
+
+b - v[1 .. i - 1] está ordenado,
+
+c - v[i - 1] <= v[k], para i <= k < n.
+
+Prova por indução:
+
+ - Base: invariantes valem trivialmente no início da primeira iteração.
+
+ - H.I.: no início da i-ésima iteração o vetor é uma permutação do original, v[1 .. i - 1] está ordenado e v[i - 1] <= v[k], para i <= k < n.
+
+ - Passo: Na i-ésima iteração o algoritmo encontra o menor elemento do subvetor v[i .. n-1] e o troca com o elemento que está na posição v[i]. Pela H.I. o vetor v[1 .. i - 1] está ordenado e v[i - 1] <= v[i]. Logo, v[1 .. i] está ordenado (ivariante (b) vale no início da próxima iteração). Pela escolha de v[i] como o mínimo do subvetor restante, temos que v[i] <= v[k], para i <= k < n (invariante (c) vale no início da próxima iteração). Como nenhum elemento foi removido ou duplicado, mas apenas permutado, invariante (a) continua válido.
+
+
+Eficiência:
+
+ - em qualquer caso é O(n^2).
+
+    - Por exemplo, vetor está ordenado ou está em ordem decrescente.
+
+
+Ordenação não é estável.
+
+ - Considere o vetor [2 2 1 3 4 5 6 7].
+
+
+Ordenação é in place.
+
+ - Só usa auxiliares de tamanho constante.
+
+
+Animation: https://www.youtube.com/watch?v=EvV1yIUgmvM

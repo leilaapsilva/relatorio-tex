@@ -1,0 +1,114 @@
+Problema do Caixeiro Viajante (ou Traveling Salesman Problem, TSP)
+
+Entrada: um grafo completo não-orientado G = (V, E) com custos c(e) não negativos nas arestas
+
+Solução: um circuito de custo mínimo que visita cada vértice exatamente uma vez
+
+
+
+Algoritmo de busca por força bruta leva tempo \Theta(n!)
+
+ - para perceber isso, considere que o algoritmo terá que fixar um vértice
+ 
+ - a partir dele testar cada um dos n-1 possíveis vizinhos
+ 
+ - a partir dessa escolha testar cada um dos n-2 vizinhos que sobraram
+ 
+ - e assim por diante
+
+
+
+Vamos buscar um lema de subestrutura ótima
+
+ - que nos permitirá entender melhor as dificuldades inerentes do problema
+ 
+ - além de obter um algoritmo um pouco melhor que a busca por força bruta
+
+
+
+Primeiro, vamos estabelecer uma relação com o problema de caminhos mínimos
+
+ - observe que se encontrarmos caminhos de custo mínimo que vão do vértice 1 até cada um dos demais vértices (Pi, para todo i)
+ 
+    - sendo que cada caminho Pi passa por todos os vértices
+	
+ - nós conseguimos obter um circuito de custo mínimo
+ 
+    - para isso basta escolher o menor entre todos os {Pi + c(i, 1)} para todo i=2, ..., n
+
+ - será que conseguimos calcular o valor desses caminhos em função de subproblemas menores?
+
+
+
+1a tentativa - baseada no formato que usamos para o algoritmo de caminhos mínimos de Bellman-Ford
+
+ - Para cada limite de arestas i em {0, 1, ..., n-1} e destino j em {1, 2, 3, ..., n}, seja
+ 
+    - Lij o comprimento do caminho mais curto de 1 até j que usa no máximo i arestas
+	
+	   - Note que Lnj, para os vários js, não permitem resolver o TSP, pois embora esses caminhos possam usar até n-1 arestas, eles provavelmente usam menos. Portanto, não passam por todos os vértices.
+
+
+
+2a tentativa
+
+ - Para cada limite de arestas i em {0, 1, ..., n-1} e destino j em {1, 2, 3, ..., n}, seja
+ 
+    - Lij o comprimento do caminho mais curto de 1 até j que usa exatamente i arestas e não repete vértices
+	
+	   - Note que, embora Lnj, para os vários js, nos deem exatamente a informação que queremos, nós não conseguimos obter a solução de um problema maior a partir de um subproblema menor. 
+	   
+	   - Para perceber isso, considere a seguinte tentativa de recorrência
+	   
+			Lij = min_{k != 1, j} {Li-1,k + c(k, j)}
+		
+	   - Embora essa recorrência pareça correta, observe que não temos informação suficiente para garantir que o caminho mínimo até k não passa por j. 
+	   
+	   - Portanto, não temos como garantir que Lij corresponda ao custo de um caminho que não repete vértices
+
+
+
+3a tentativa - Para garantir que não vamos repetir visitas a vértices, precisamos armazenar quem são os vértices já visitados
+
+ - Para cada destino j em {1, 2, 3, ..., n} e cada subconjunto S contido em {1, 2, ..., n} que contém 1 e j, seja
+ 
+    - L_S,j o comprimento do caminho mais curto de 1 até j que passa exatamente uma vez por cada vértice de S
+	
+	- Subestrutura ótima
+	
+	   - Seja P um caminho mínimo de 1 até j que passa exatamente uma vez por todos os vértices de S
+	   
+	   - Se a última aresta no caminho é (k, j) então P' é a parte de P que vai de 1 até k
+	   
+	   - Temos que P' é um caminho mínimo de 1 até k que passa exatamente uma vez por todos os vértices de S-{j}
+	   
+	   - Demonstração de corretude por contradição supondo que existe P* melhor que P' e mostrando que se obtem um caminho melhor que P
+	
+	- Recorrência
+	
+		L_S,j = min_{k \in S, k != j} {L_S-{j}, k + c(k, j)}
+
+
+
+Algoritmo
+
+algTSP(G = (V,E), c) {
+	A[{1}, 1] = 0;
+
+	para m = 2 até n // m é o tamanho do subconjunto S
+		para cada S em {1, 2, ..., n} de tamanho m que contém 1
+			para cada j em S, j != 1
+				A[S, j] = min_{k \in S, k != j} {A[S-{j}, k] + c(k, j)}
+	
+	devolva min_j=2, ..., n {A[{1, 2, ..., n}, j] + c(j, 1)}
+}
+
+Eficiência: \Theta(n^2 * 2^n)
+
+ - o número de subproblemas é igual a \Theta(n * 2^n) pois são \Theta(2^n) subconjuntos e \Theta(n) destinos
+ 
+ - para resolver cada subproblema gastasse \Theta(n), já que a recorrência verifica todo k \in S (exceto por k = j)
+ 
+ - do produto do número de subproblemas pelo esforço para resolver cada subproblema segue o resultado
+
+

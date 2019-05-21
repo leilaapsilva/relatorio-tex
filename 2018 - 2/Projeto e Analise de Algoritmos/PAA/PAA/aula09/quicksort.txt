@@ -1,0 +1,213 @@
+Quicksort
+
+ - Algoritmo de ordenação que utiliza a técnica de divisão-e-conquista
+
+
+
+Principal diferença para o mergeSort
+
+ - Ao invés de dividir o vetor ao meio
+ 
+ - Divide ele entre os elementos menores e maiores
+ 
+    - Usando como referência um pivô
+
+
+Pseudo-código em alto nível
+
+(v, n) quickSort(vetor v, tamanho n) {
+
+	Se (n <= 1) devolva (v, n)
+	
+	p = escolhaPivo(v, n)
+	particione v ao redor de p
+	ordene recursivamente a 1a metade de v
+	ordene recursivamente a 2a metade de v
+	
+	devolva (v, n)
+}
+
+
+
+Ideia da partição
+
+ - Escolha um elemento para ser o pivô
+ 
+    - Digamos o primeiro elemento do vetor
+
+ - Coloque na primeira metade do vetor todos os elementos menores que o pivô
+ 
+ - E na segunda metade todos os maiores
+ 
+ - Finalmente, coloque o pivô na posição intermediária correta
+ 
+ 
+ 
+ - Conseguimos implementar partição em tempo linear?
+ 
+    - Usando um vetor auxiliar, mantemos dois índices i e j, um começando no início deste vetor e outro no final
+	
+	- Basta percorrer v da posição 2 até o final
+	
+	- Para cada elemento menor que o pivô, colocá-lo na posição apontada por i e aumentar i
+	
+	- Para cada elemento maior que o pivô, colocá-lo na posição apontada por j e diminuir j
+	
+	- No final i=j, basta colocar o pivô nesta posição
+	
+	- Note que é o vetor auxiliar que está particionado, não o original
+
+
+
+ - Conseguimos implementar sem usar um vetor auxiliar? (In place?)
+ 
+    - Conheço duas maneiras
+   
+    - Percorremos o vetor v da posição 2 até o final
+   
+    - Mantemos dois índices i e j, de modo que 
+    
+       - Entre as posições 2 e i-1 ficam os elementos menores que o pivô
+	  
+	   - Entre as posições i e j-1 ficam os elementos maiores que o pivô
+	  
+    - A cada iteração comparamos o elemento da posição j com o pivô
+	
+	   - Se for maior que o pivô avançamos j
+	   
+	   - Se for menor que o pivô trocamos v[i] com v[j] e avançamos tanto i quanto j
+	   
+	- No final trocamos o elemento na posição i-1 com o pivô, que está na posição 1
+
+int particione(vetor v, int l, int r) {
+	
+	p = v[l]
+	i = l+1;
+	para j=l+1 até r
+		se v[j] < p
+			troque v[i] com v[j]
+			i++
+	troque v[l] com v[i-1]
+	devolva i-1
+}
+
+Corretude e invariante:
+
+ - no início da iteração j o subvetor que começa na posição l+1 e vai até a posição j-1 está particionado corretamente
+ 
+    - particionado corretamente significa que de l+1 até i-1 estão os elementos menores que p e de i até j-1 estão os maiores
+
+
+
+Eficiência:
+
+ - Algoritmo executa em tempo linear no tamanho do vetor de entrada, ou seja, O(n) para n = r - l + 1
+
+
+
+Na outra maneira 
+
+ - Avançamos com um índice do início a fim, até encontrar um elemento maior que o pivô
+ 
+ - E com outro índice do fim para o início, até encontrar um elemento menor que o pivô
+ 
+ - Então trocamos os dois elementos de posição, e continuamos a busca
+ 
+ - O processo termina quando os índices se encontram
+ 
+ - No final também tem que colocar o pivô na posição correta
+
+
+
+ - Conseguimos implementar sem inverter a posição relativa de elementos com o mesmo valor? (Estável?)
+ 
+    - Não.
+
+
+
+(v, l, r) quickSort(vetor v, int l, int r) {
+
+	Se (r <= l) devolva (v, l, r)
+	
+	escolhaPivo(v, l, r)
+	m = particione(v, l, r)
+	quickSort(v, l, m-1)
+	quickSort(v, m+1, r)
+	
+	devolva (v, l, r)
+}
+
+
+
+Sobre a importância da escolha do pivô
+
+
+
+ - Qual o pior tipo de pivô que o quickSort pode escolher? 
+ 
+    - R: Aquele que divide a entrada em um vetor vazio e outro com apenas um elemento a menos que o anterior
+ 
+    - Qual a eficiência do quickSort neste caso?
+	
+	   - R: Theta(n^2), já que o algoritmo de partição percorre todo o vetor em cada chamada. Ou seja, temos n + n-1 + n-2 + n-3 + ... + 3 + 2 + 1 operações no total.
+
+
+
+ - Qual o melhor tipo de pivô que o quickSort pode escolher?
+ 
+    - R: Aquele que divide a entrada exatamente na metade.
+	
+    - Qual a eficiência do quickSort neste caso?
+
+	   - R: Theta(n log n), pois nesse caso o quickSort teria uma recorrência igual a do mergeSort. Ou seja, T(n) = 2T(n/2) + O(n)
+
+
+
+ - O que seria um bom pivô?
+ 
+    - R: Aquele que divide a entrada numa proporção 25-75%
+	
+	- Por que isso caracteriza um bom pivô?
+	
+	   - R: Porque a altura de uma árvore de recursão em que só ocorram partições com bons pivôs é limitada por O(log n)
+	   
+	        1 = n*(3/4)^h --> n = (4/3)^h --> h = log_(4/3) n --> h = (1 / lg 4/3) lg n
+
+
+
+ - Como encontrar bons pivôs?
+ 
+    - Uso de aleatoriedade
+	
+	   - O algoritmo escolhe o pivô de modo uniforme e aleatório
+	   
+	   - Qual a probabilidade de obter uma boa divisão, ou seja, um bom pivô?
+	   
+	      - R: 50%, pois qualquer elemento cuja posição final está no "meio" (entre 25-75%) do vetor gera essa divisão
+		  
+		  
+		  
+	   - Para concluir a análise, vamos usar o conceito de fase
+	   
+	      - Vamos definir uma variável aleatória X que nos diz quantos níveis de recurssão (ou quantas partições) são necessários para que ocorra uma boa divisão.
+		  
+		  - A duração de uma fase corresponde ao valor de X
+		  
+		  - Note que o valor de X pode ser muito grande, se tivermos muito azar nas escolhas do pivô
+		  
+		  - Mas, qual é o valor esperado de X?
+		  
+		  E[X] = 1*p + (1-p)*(1 + E[X])
+		  E[X] = p + 1 - p + E[X] - pE[X]
+  		  pE[X] = 1
+		  E[X] = 1/p
+		  
+		  No nosso caso, p = 1/2, logo E[X] = 2
+		  
+		  Assim, em média, a cada dois níveis da recursão temos um pivô bom
+		  
+		  Como a árvore de recursão tem O(log n) partições com pivôs bons, o número de níveis esperados é também O(log n)
+		  
+		  Dado que o trabalho por nível da árvore é O(n) chegamos ao tempo esperado de O(n log n).
+
+	   

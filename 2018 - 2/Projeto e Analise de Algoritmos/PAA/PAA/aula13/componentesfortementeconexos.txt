@@ -1,0 +1,135 @@
+Primeiro vamos definir o conceito de componentes fortemente conexos em grafos orientados.
+
+ - um componente fortemente conexo é um subconjunto S maximal de vértices de V tal que para quaisquer dois vértices u e v em S existe um caminho de u pra v e também de v para u.
+
+
+
+Para desenvolver nossa intuição sobre o problema, podemos perceber que
+
+ - dependendo a partir de qual vértice começamos a realizar a busca em profundidade, nós encontramos exatamente um componente fortemente conexo
+ 
+ - mas se começarmos de outros vértices podemos acabar encontramos vários destes misturados (o que não nos ajuda).
+ 
+ - em particular, quando começamos a busca a partir de uma componente sorvedouro, encontramos um componente corretamente.
+ 
+    - um componente fortemente conexo é sorvedouro se não tem arcos indo para outros componentes fortemente conexos.
+
+
+
+Como saber a partir de quais vértices começar a busca? Ou seja, como localizar uma componente sorvedouro? 
+
+Para descobrir isso vamos usar alguns conceitos como: 
+
+ - Componente fonte. Um componente fortemente conexo é fonte se não tem arcos vindo de outros componentes fortemente conexos para ele.
+
+ - Tempo de término de um vértice, que corresponde ao momento em que a busca termina de passar por esse vértice.
+
+    - Ele se assemelha com o rótulo que usamos na ordenação topológica, mas não é decrescente.
+ 
+Vamos ver como o tempo de término é implementado nos seguintes algoritmos
+
+
+
+LoopBuscaProfT(grafo G=(V,E)) {
+	maque todos os vértices em V como não encontrados // esta marcação é preservada ao longo de todas as invocações da função buscaProfRecT
+	
+	t = 0 // para simplificar o pseudo-código essa variável é global. Numa implementação ela seria passada por referência (apontador) ao longo das chamadas de função
+	
+	para cada v \in V
+		se v não foi encontrado
+			buscaProfRecT(G, v)
+}
+
+
+
+buscaProfRecT(grafo G=(V,E), vértice v) {
+	
+	marque v como encontrado
+	
+	para cada aresta (v, w)
+		se w não foi encontrado
+			buscaProfRec(G, w)
+	
+	t++
+	defina f(v) = t // os tempos de finalização f() também são globais por simplicidade
+}
+
+
+
+Se um vértice v tem o maior tempo de término, então ele está em uma componente fonte. Isso porque
+
+ - a busca terminou por último em v. Logo, todos os demais vértices já haviam sido encontrados nesse momento.
+
+ - Isso implica que as únicas arestas que podem incidir em v vem de vértices que v também alcança, e portanto estão na mesma componente que ele. 
+ 
+Mas nós queremos encontrar componentes que são sorvedouros, pois fazer uma busca em profundidade a partir de um vértice delas encontra uma componente fortemente conexa.
+
+Por isso, o algoritmo começa invertendo a orientação das arestas antes de fazer a busca em profundidade e então registrando os tempos de término, já que uma componente fonte no grafo invertido é uma componente sorvedouro no grafo original.
+
+ - Note que inverter as arestas não muda as componentes fortemente conexas.
+
+
+
+Algoritmo de Duas Passadas de Kosaraju
+
+1 - Computa Grev a partir de G invertendo todos os arcos de G
+
+2 - Executa LoopBuscaProfT(Grev) para computar os tempos de término que permitirão localizar vértices de componentes sorvedouros
+
+3 - Executa LoopBuscaProfL(G) começando cada busca em profundidade em ordem decrescente de tempo de término e marcando os vértices encontrados em cada busca de acordo com os líderes
+
+Eficiência:
+
+ - Este algoritmo executa em tempo O(n + m)
+
+    - Um detalhe importante para tanto é, ao invés de armazenar um tempo de término por vértice (o que exigiria uma ordenação), armazenar os vértices em ordem decrescente de tempo de término. 
+ 
+ 
+
+LoopBuscaProfL(grafo G=(V,E)) {
+	maque todos os vértices em V como não encontrados // esta marcação é preservada ao longo de todas as invocações da função buscaProfRecL
+	
+	s = NULL // para simplificar o pseudo-código esse vetor de vértices é global. Numa implementação ele seria passado por referência (apontador) ao longo das chamadas de função
+	
+	// suponha que os vértices estão nomeados de acordo com seus tempos de término calculados anteriormente
+	para v = n até 1
+		se v não foi encontrado
+			s = v
+			buscaProfRecL(G, v)
+}
+
+
+
+buscaProfRecL(grafo G=(V,E), vértice v) {
+	
+	marque v como encontrado
+	defina lider(v) = s
+	
+	para cada aresta (v, w)
+		se w não foi encontrado
+			buscaProfRecL(G, w)
+}
+
+
+
+Para verificar que o algoritmo está correto, ou seja, que a busca a partir de um vértice v com maior tempo de término realmente revela uma componente fortemente conexa, observe que:
+
+ - existe um caminho a partir de v até todos os vértices que a busca encontrou (pela propriedade da busca).
+ 
+ - tome um vértice w qualquer que foi alcançado a partir de v.
+ 
+ - vamos mostrar que existe um caminho a partir de w até v em G, o que implica que temos uma componente fortemente conexa.
+ 
+   - sabemos que em Grev existe um caminho de w até v, pois em G o vértice v alcança w.
+	
+	- além disso, o tempo de término de v é maior que o tempo de término de w nas buscas realizadas em Grev.
+	
+	- vamos analisar as possibilidades para que isso ocorra:
+	
+	   - se w for encontrado antes que v o tempo de término de w seria maior, já que existe o caminho de w até v em Grev.
+	   
+	   - Portanto, v foi encontrado antes que w. Mas, se não houver um caminho de v até w em Grev, então mesmo nesse caso v será finalizado antes de w ser encontrado. Novamente w ficará com tempo de término maior que v.
+	   
+	   - Logo, v deve ter sido encontrado antes que w e deve existir um caminho de v até w em Grev. Mas isso implica num caminho de w até v em G, que é o que queríamos demonstrar.
+
+

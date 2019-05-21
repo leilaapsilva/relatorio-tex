@@ -1,0 +1,98 @@
+Busca local é uma técnica abrangente para obter e/ou melhorar soluções para problemas NP-Completos e NP-Difíceis
+
+
+
+Dado um conjunto de soluções candidatas X
+
+Definimos o conceito de vizinhança
+
+ - baseado em um tipo específico de operação, que chamaremos operação de vizinhança
+ 
+Duas soluções x e y são vizinhas <--> x pode ser transformado em y realizando uma operação de vizinhança, e vise-versa
+
+
+
+Como exemplo, tomemos nosso problema NP-Difícil preferido, o TSP
+
+ - uma solução candidata é um circuito que visita cada vértice exatamente uma vez
+ 
+ - podemos definir a operação de vizinhança como sendo a troca de duas arestas quaisquer do circuito, de modo que o resultado ainda seja um circuito
+ 
+    - veja exemplo
+
+ - assim, dada uma solução candidata para o TSP (um circuito C)
+ 
+    - todo circuito que pode ser obtido através da troca de exatamente duas arestas de C
+	
+	- ou seja, que difere de C em exatamente duas arestas, 
+	
+	- está na vizinhança de C
+
+
+
+Definido o conceito de vizinhança, podemos apresentar um algoritmo genérico de busca local
+
+buscaLocal(){
+	seja x = uma solução inicial qualquer
+	
+	enquanto x tiver uma solução vizinha y que é melhor
+		x := y
+	
+	devolva x
+}
+
+Observe que a solução devolvida corresponde a 
+
+ - um ótimo local com relação ao espaço de busca definido pela operação de vizinhança
+
+    - daí o nome, busca local
+
+
+
+Questões Avançadas de Busca Local
+
+ 1) Como escolher a solução inicial?
+ 
+    - Se possível, usando uma heurística construtiva, como um algoritmo guloso
+	
+	- Se não for possível, usando aleatoriedade e repetindo este procedimento diversas vezes, para aumentar a chance de que a solução obtida possua alguma qualidade
+
+ 2) Dentre os vários vizinhos melhores que a solução atual, qual escolher?
+ 
+    - Aleatoriamente, para aumentar diversidade
+	
+	- Primeiro encontrado, buscando aumentar eficiência
+	
+	- Maior melhoria, buscando aumentar qualidade
+	
+	   - Destacar que não há garantia de que essas escolhas reflitam os resultados esperados
+	   
+	   - Testes empíricos são essênciais quando lidamos com busca local
+
+ 3) Como definir vizinhanças?
+ 
+    - Vizinhanças muito pequenas permitem buscas mais rápidas, mas podem parar em ótimos locais muito ruins
+	
+	- Vizinhanças muito grandes evitam ótimos locais piores, mas podem ser lentas de buscar
+	
+	- Em geral, procurar um meio termo
+	
+	   - Algumas técnicas usam vizinhanças de tamanhos variados, migrando de uma para outra em momentos específicos 
+	   
+	      - Quando uma menor e mais rápida não encontra mais avanço, por exemplo
+		  
+ 4) Busca local sempre termina?
+ 
+    - Em geral sim, pois a solução ótima tem valor finito e a busca está sempre melhorando
+	
+	   - Exceção é se as melhorias forem cada vez menores
+	   
+ 5) Busca local é rápida?
+ 
+    - Pior caso em geral é exponencial, mas costuma ser rápida na prática, especialmente se partir de soluções iniciais razoáveis
+	
+ 6) Busca local gera soluções com garantia de qualidade?
+ 
+    - Em geral não, mas são muito boas em melhorar outras soluções
+
+

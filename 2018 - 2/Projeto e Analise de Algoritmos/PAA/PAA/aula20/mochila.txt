@@ -1,0 +1,134 @@
+Problema da Mochila
+
+Entrada:
+
+ - n itens, sendo que cada item i (1<=i<=n) tem
+ 
+    - valor vi > 0
+	
+	- peso wi > 0 e inteiro
+	
+ - capacidade W > 0  e inteiro
+ 
+Solução:
+
+ - subconjunto S de itens que
+ 
+    - maximiza \sum_{i \in S} vi (tem lucro máximo)
+	
+	- \sum_{i \in S} wi <= W (e não viola a capacidade)
+
+
+
+Vamos usar I(n, W) para denotar uma entrada para o problema da mochila que tem:
+
+ - n itens
+
+ - capacidade W
+ 
+ - deixamos implícito que cada item tem valor vi e peso wi, para 1 <= i <= n.
+
+
+
+Encontrando a subestrutura ótima em busca da recorrência:
+
+ - Considere uma entrada I(n, W) e uma correspondente solução ótima S
+ 
+ - Vamos focar nossa atenção no item n. Temos duas possibilidades:
+ 
+    1) n não está em S
+	
+	2) n está em S
+	
+ - Vamos analisar 1) primeiro
+ 
+    - neste caso S é uma solução ótima para I(n-1, W), ou seja, para a mochila de mesma capacidade que só pode usar os n-1 primeiros itens.
+	
+	Prova: que S é uma solução para I(n-1, W) é direto, já que ela não usa o item n e respeita a capacidade W. Para mostrar que ela é ótima para I(n-1, W) vamos supor, por contradição, que existe uma solução S* melhor que S para I(n-1, W). Note que S* também é uma solução para I(n, W), já que ela respeita a capacidade W e só usa itens válidos para esta entrada. Como o valor de S* é maior que S, chegamos a uma contradição, já que S era ótima para I(n, W).
+	
+	- Qual o valor da solução ótima S em função da solução ótima dos subproblemas neste caso?
+
+
+
+ - Agora vamos analisar 2)
+ 
+    - neste caso n está em S. Como queremos descrever S em função de soluções ótimas para subproblemas, vamos considerar a solução S' = S \ {n}, ou seja, o que resta de S quando removemos o último item. Novamente, temos que S' é uma solução que só usa os n-1 primeiros itens, mas algo mais acontece neste caso. Como S respeitava a capacidade W, i.e., 
+	
+	\sum_{i \in S} wi <= W
+	
+	ao remover o item n de S temos que S' respeita uma restrição mais forte
+	
+	\sum_{i \in S'} wi = \sum_{i \in S} wi - wn <= W - wn
+	
+	Portanto, S' é uma solução ótima para I(n-1, W - wn), ou seja, para a mochila de capacidade W - wn que só pode usar os n-1 primeiros itens.
+	
+	Prova: que S' é uma solução para I(n-1, W - wn) é direto, já que ela não usa o item n e respeita a capacidade W - wn. Para mostrar que ela é ótima para I(n-1, W - wn) vamos supor, por contradição, que existe uma solução S* melhor que S' para I(n-1, W - wn). Note que S* U {n} é uma solução para I(n, W), já que ela respeita a capacidade W e só usa itens válidos para esta entrada. Como o valor de S* + vn é maior que S' + vn = S, chegamos a uma contradição, já que S era ótima para I(n, W).
+	
+	- Qual o valor da solução ótima S em função da solução ótima dos subproblemas neste caso?
+
+
+
+Escrevendo a recorrência:
+
+ - Como nossos subproblemas dependem:
+
+    - tanto dos itens que podem ser usados na solução
+	
+	- quanto da capacidade residual da mochila
+	
+ - nossa recorrência terá dois parâmetros i e x
+ 
+ - A[i, x] corresponde ao valor de uma solução ótima para uma mochila que:
+
+    - pode ser preenchida com os i primeiros itens (i = 1, ..., n)
+
+    - e tem capacidade x (x = 1, ..., W)
+
+ - Seguindo nossa análise da subestrutura ótima, temos a seguinte recorrência
+ 
+    - A[i, x] = max{A[i-1, x], A[i-1, x - wi] + vi}
+	
+	- Observe que esta recorrência tem uma limitação
+	
+	   - o segundo caso não faz sentido quando wi > x, já que a capacidade da mochila fica negativa
+	   
+	- Além disso, os casos bases da recorrência ocorrem quando o número de itens disponível é 0
+	
+	   - neste caso a mochila sempre terá valor 0, independente da capacidade
+
+
+
+Projetando o algoritmo de Programação Dinâmica a partir da recorrência:
+
+mochila(n, v, w, W) {
+
+	para x = 0 até W
+		A[0, x] = 0
+	
+	para i = 1 até n
+		para x = 0 até W
+			A[0, x] = max{A[i-1, x], A[i-1, x - wi] + vi} // tem uma incorreção aqui
+	
+	devolva A[n, W]
+}
+
+mochila(n, v, w, W) {
+
+	para x = 0 até W
+		A[0, x] = 0
+	
+	para i = 1 até n
+		para x = 0 até W
+			se x < wi
+				A[i, x] = A[i-1, x]
+			senão
+				A[i, x] = max{A[i-1, x], A[i-1, x - wi] + vi}
+	
+	devolva A[n, W]
+}
+
+Prova de corretude: Por indução matemática usando como hipótese a recorrência que demonstramos antes
+
+Eficiência: Theta(nW), o que faz deste algoritmo pseudopolinomial, já que o número W pode crescer como uma exponencial no tamanho da entrada.
+
+
