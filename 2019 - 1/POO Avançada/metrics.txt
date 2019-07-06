@@ -1,0 +1,19 @@
+ci = size(i) * (1 - (inf(i)/ ))
+
+
+
+cc=yclicity pow(x)
+ -> acompalmento de acotes
+
+ 
+
+
+
+ ML2 = 100 * somatoriodetodosos(ci) 	* penalty(i)
+ 
+
+
+ML3 = ( (100 − n) + (n/100) ∗ ML2, if n < 100
+
+(100 - 7) + 0,07 * ML2
+
