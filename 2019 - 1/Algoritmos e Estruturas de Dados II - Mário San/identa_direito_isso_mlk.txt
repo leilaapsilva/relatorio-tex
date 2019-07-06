@@ -1,0 +1,27 @@
+
+
+int func(int n,int v[]){int i,j;i=0;while(i<n){
+if(v[i]!=0) ++i;else{for(j=i+1;j<n;++j)
+v[j-1]=v[j];--n;}}return n;}
+
+
+// ident
+
+
+int func(int n,int v[])
+{
+	int i, j;
+	i = 0;
+	while(i < n)
+	{
+		if(v[i] != 0) 
+			++i;
+		else
+		{
+			for(j = i + 1; j < n; ++j)
+				v[j - 1] = v[j];
+				--n;
+		}
+	}
+	return n;
+}
