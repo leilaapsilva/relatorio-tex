@@ -1,0 +1,130 @@
+Saúde e doença: concepção popular {
+	A noção etiológica ultrapassa o campo estrito da biomedicina no espaço e no tempo e atinge também o universo de considerações antropológicas e metafísicas;
+	Causação Natural: interligação entre fenômenos da natureza e da saúde. (Ex: calor, lua, tem relação direta com algumas enfermidades);
+	Saúde e longevidade dependem da relação positiva com a natureza: tomar sol, aguentar chuvas, etc. 
+	Intervenção desordenada do homem na natureza explica muitas doenças (poluição, lixo, água parada);
+	Desequilíbrio na comida: comidas "pesadas", que não podem ser misturadas (ex: manga e leite);
+	Doenças do ciclo da vida: idosos e crianças;
+
+	Causação socio-econômica: refere-se às condições materiais de existência (salário, moradia, etc);
+	Causadores de doenças: dificuldades da alimentação, tipo de trabalho, etc.
+
+	Descrença da população nos médicos;
+	Levy-Strauss - "a eficácia da magia implica na crença da magia". Ex: efeito placebo;
+
+	Causação Psicossocial: sentimentos e emoções prejudiciais a saúde; diretamente ligada à relações sociais;
+	Doenças físicas originadas de problemas emocionais;
+
+	Causação Sobrenatural: delimita-se ao universo dos espíritos e seres trancedentais. Ex: Deus, Orixás, etc.
+	Transtornos espirituais: mau olhado, olho gordo, encosto.
+	De acordo com a sua religião, cada pessoa tem uma explicação diferente para a causa das enfermidades; 
+
+	Conclusão: a interpretação da doença se dá em uma visão pluralística, onde a casualidade se relaciona com o natural, o sobrenatural, psicossocial e socio-econômico.
+	Observações diárias + experiências de cuidado e tratamento + tradições familiares e grupais = visão pluralística
+	Campo religioso: relação de fé e graça = milagre;
+}
+
+Humanização {
+	Fundamentado no respeito e valorização da pessoa humana, que visa à transformação da cultura institucional por meio da construção coletiva de compromissos éticos e de métodos para as ações de atenção à saúde e de gestão dos serviços. Sua essência é a aliança da competência técnica e tecnológica com a competência ética e relacional.
+
+	Humanização como resposta diante da violência institucional na saúde; 
+	Violência institucional: utilização de castigos, abusos e arbitrariedades praticados em prisões, escolas e instituições psiquiátricas, com a conivência do Estado e da sociedade;
+	Sucateamento dos serviços de saúde -> Humanização como resposta.
+
+	A humanização nasceu dentro do SUS. Os princípios do SUS são totalmente de inspiração humanística: universalidade, integralidade, equidade e participação social;
+	PNHAH -> Programa Nacional de Humanização da Assistência hospitalar;
+	Revisão PNHAH -> PNH -> Política Nacional de Humanização;
+	PNH -> conjunto de diretrizes transversais que norteiam toda atividade institucional que envolva usuários ou profissionais da saúde, em qualquer instância de efetuação. 
+		- a valorização da dimensão subjetiva e social em todas as práticas de atenção e gestão, fortalecendo compromissos e responsabilidades;
+		- o fortalecimento do trabalho em equipe, estimulando a transdisplinaridade a grupalidade;
+		- a utilização da informação, comunicação, educação permanente e dos espaços da gestão na construção de autonomia e protagonismo;
+		- promoção do cuidado (pessoal e institucional) ao cuidador.
+
+	A humanização da organização do trabalho se dá pela gestão participativa. Estratégias para gestão participativa: espaço de discussão, decisão sobre organização do trabalho, equipes transdisciplinares. Ferramentas para participação na saúde: ouvidoria, grupos de trabalho de humanização, visitas abertas, pesquisas de satisfação.
+
+	Paciente = objeto de estudo e manipulação na construção do saber e da prática científica;
+	Profissional da saúde = peças e engrenagens que fazem funcionar a máquina institucional; 
+
+	Humanização e Ensino: 
+	Inserção das diretrizes da humanização nas escolas formadoras de profissionais da saúde;
+	Dificuldade de integrar os temas humanísticos ao escopo da medicina;
+	Humanização ≠ “ser bonzinho”, “ser educado”, “agregar o paciente”
+
+	Humanização é indispensável; Desejo e prazer de cuidar!
+}
+
+Trabalho do Cuidado: o cuidado de idosos em instituições de longa permanência {
+	Mercantilização da vida íntima;
+	Habitus feminino de cuidado;
+	Separação entre as esferas públicas e privada; 
+	Tradição familiar;
+	Arte de fingir;
+	Infantilização do idoso;
+
+	Resultado de pesquisas: precarização dos vínculos familiares e institucionalização da pessoa idosa; convivência comunitária; estabelecidos e outsiders; inibição da sexualidade; 
+}
+
+Racismo {
+	No Brasil, riso desempenha um papel mediador; o riso é uma maneira de extravasar seu racismo latente, contornando a censura e a reflexão crítica;
+	Piada racista não é levada a sério - difícil incriminação penal; produz falsa e confusa impressão de que rir de uma piada racista não define o indivíduo como racista; mensagens ofensivas disfarçadas; a piada racista mobiliza sentimentos de ódio ao objeto do riso; a piada racista reforça crenças, estereótipos e preconceitos disfarçados de brincadeira, mas que ocultam um caráter agressivo;
+	
+	Kupermann: cada piada requer e constrói seu público alvo específico = efeito devastador (perpetua valores culturais que consolidam estereótipos e preconceitos);
+	Caracterização dos grupos étnicos-raciais: inferiorização, criminalização, comparação com referência depreciativa, felicidade de um e consequente tristeza de outro;
+
+	Cenário político: questão racial tem sido palco de debates acirrados; influência da luta denunciatória do movimento negro e de sua ação reinvidicatória; importância dos meios de comunicação em massa;
+
+	Conclusão: para se adaptarem aos novos tempos, as piadas precisam mudar de foco e de estilo; nenhuma prática, discurso, risada racista, é preservada - tornam-se alvos de olhares atentos, perdendo sua força e credibilidade. 
+}
+
+Conceitos de Saúde {
+	Refletem contextos históricos, sociais, culturais, políticos, econômicos;
+	Concepção mágico-religiosa: pecado ou maldição;
+	- Hipócrates: visão racional da medicina; saúde = equilibrio/organização; doença = desorganização; 
+	- Idade Média Europeia: religião; doença = pecado; cura = fé; desenvolvimento dos hospitais; 
+
+	Conferência de assistência à saúde: desigualdades na situação de saúde entre países desenvolvidos e subdesenvolvidos;
+	Pontos de estratégia: ações devem ser praticadas e socialmente aceitas; ao alcance de todos; população deve participar; custos acessíveis;
+	Sistema de saúde -> desenvolvimento social e econômico do país
+	Cuidados da saúde devem ser adaptados à realidade da população (nutrição, educação, saneamento básico, medicamentos disponíveis, etc);
+
+	Vacina: grande avanço; recusa por motivos religiosos, "artificialidade", reações adversas;
+}
+
+
+O belo - saúde, exercícios, etc. {
+	Musculação - entrar num grupo de privilegiados onde poucas pessoas da sociedade participam; aceitação social - ela é aceita se seguir o padrão; quando nao alcança o estereotipo, ela sente fracassada - casos de bulimia, depressão, etc. Preconceito com quem não segue esse estilo de vida, e muitas só seguem pra serem aceitas (fazem uso de cirurgia plastica -- ve como meio de mudança de classe social).
+
+	Corporificaçao - reduz toda a capacidade humana em físico; padrão hegemonico; seu carater, tudo, reduz ao seu corpo, como vc se apresenta; perigo em se adequar aos padrões - eles são mutáveis; 
+}
+
+Gênero { 
+	Homem e mulher sao representaçoes sociais e variam; além de atitudes, tbm entra a questão do físico; corpo da mulher é construido pra agradar o outro; corpo do homem é pra ter dominio sobre si mesmoe o outro - forte, saber se impor; 
+	Heteronormatividade - é além das práticas sexuais; 
+
+	Queer - desvio e fuga da norma; aliança; 
+	Heterossexismo - heterosexualidade compulsória; heteronormatividade;  
+}
+
+Acessibilidade {
+	Evolução das tecnologias de informação e comunicação tem modificado a forma como as pessoas se comunicam e se interagem. Essas tecnologias podem e tem sido utilizadas para facilitar o exercício da democracia; crescente utilização por parte dos governos dessas tecnologias como forma de demonstrar interesse em democratizar e tornar acessível a todos uma maior participação política. 
+	Novas tecnologias surgem acompanhadas de ferramentas e métodos que possibilitam acessibilidade a esses recursos. 
+	Desenvolvimento do governo eletrônico se dá muitas vezes sem o cuidado de torna-lo acessível ao público especial. 
+
+	Globalização dos meios de comunicação eletrônica: mudanças sociais, culturais, aumento da proximidade entre pessoas; atinge todas as camadas sociais (em maior e menor grau), e por isso deve-se voltar a atenção para pessoas com deficiencia, historicamente marginalizadas. 
+
+	Papel da tecnologia dentro das democracias: disponibilizar serviços e info, aumentar participação pública.
+
+	Governo Eletrônico -> utilização das TICs pra gerar uma melhor gestão publica, mais transparente e com mais participação pública;
+	Governança Eletrônica -> preocupação com a inclusão digital, exercício da cidadania e a responsividade do Estado; conceito mais amplo que o interior pois se preocupa com a adoção de mecanismos que estimulem a participação da sociedade civil na condução da política. 
+
+	Uso consciente da tecnologia pode produzir mudanças concretas nas democracias. 
+
+	Tecnologia é empoderamento social; acesso à info é um dos direitos humanos fundamentais.
+	- Não é porque tá na internet que é acessível a todos.
+	Acessibilidade digital -> apresentação da info de formas múltiplas; sistema automatico de transcrição de mídias;
+
+	e-Mag = 4 principais situações de uso de um computador - sem mouse, sem teclado, sem monitor, sem áudio.
+	Outras preocupações de acessibilidade: diferentes níveis de escolaridade, faixas etárias, pouca experiência na utilização de computadores;
+
+	Conclusão = é crescente o uso de TICs em conjunto com Governo Eletrônico como ferramentas de expressão de cidadania; ainda é necessário que se utilize essas tecnologias de maneira completamente acessível para assegurá-las como forma de participação política.
+}

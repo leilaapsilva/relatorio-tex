@@ -1,0 +1,27 @@
+2 - Cidadania, democracia e governo eletrônico: uma relação necessária
+
+Como a sociedade encontra-se cada vez mais conectada no mundo atual, as pessoas se sentem cada vez mais próximas, como nunca antes aconteceu. Assim, essa "nova era" faz com que as pessoas tenham cada vez mais convicção que o habitar cívico do presente possui dimensões planetárias.
+
+Essas transformações atingem todas as camadas sociais, mesmo que seja em graus diferentes. Por esse motivo, é importante darmos atenção especial às pessoas com deficiências, já que ela também é uma parcela da sociedade e que historicamente, é marginalizada. Desse modo, enxergamos a importância de estudos que sejam capazes de inserirem essas pessoas na sociedade informacional. 
+
+Atualmente, as amplas possibilidades de difusão da informação e de incremento de formas de participação da sociedade civil levaram diferntes teóricos a afirmarem que uma nova expressão de cidadania, agora mais ativa e participativa, está emergindo nessa era.
+
+Para Gomes, os termos "democracia eletrônica", "ciberdemocracia", "democracia digital" e "e-democracy" referem-se às possibilidades de extensão das oportunidades democráticas instauradas pela infraestrutura tecnologica. Ou seja, diferentes expressões foram concedidas à interação internet-particição política.
+
+Para Pinho, o desenvolvimento da internet associado às tecnologias informacionais surtem dois efeitos: no setor público, a melhoria nos processos governamentais (qualidade de serviços, transparência) e na sociedade, maior acesso às informações do Estado, articulação de grupos, maior cobrando do setor público.
+
+Transformações na estrutura política do Estado com base no uso da tecnologia estão acontecendo aos poucos. Ex: portais da web (divulgação de dados, contato).
+
+Para Rover, "Governo Eletrônico" pode ser entendido como a infraestrutura única de comunicação compartilhada por diferentes órgãos públicos a partir da qual as TICS (tecnologias da informação e comunicação) são usadas de forma intensiva no intuito de melhorar a gestão pública e o atendimento ao cidadão - colocar o governo ao alcance de todos, ampliando a transparência e incrementando a participação cidadã.
+
+Para Piana, é necessário entender o governo eletrônico também pela mudança lógica de participação, com a abertura de novos canais de comunicação entre Estado-cidadão. 
+Seguindo a visão de Piana, temos Cunha, Barbosa e Pinto, que dizem que o governo aos poucos foi incorporando outras dimensões, como a preocupação com a inclusão digital, o exercício da cidadania e a responsividade do Estado. Isso gerou o surgimento do termo "governança eletrônica" que se divide em: e-administração publica (melhoria dos processos governamentais utilizando as TICs); e-serviços públicos (melhoria na prestação de serviços); e-democracia (participação cidadã mais ativa, usando as TICs no processo de tomada de decisão). 
+Nesse contexto, Piana diz que a e-governança inclui as ações estatais que se apoiam no suporte digital para as diversas tarefas ligadas ao governo. A e-governança é entendida hoje como um conceito mais amplo do que o Governo Eletrônico, se preocupando com a adoção de mecanismos que estimulem a participação da sociedade civil na condução da política, sendo uma organização complexa e participativa. Porém, as TICs podem contribuir para melhorar a relação Estado-cidadão, podendo até inclusive ampliá-las, mas não podem por si só criar mecanismos democráticos de participação se estes ainda não existem. 
+
+Assim, diversos autores têm questionado o potencial democrático das TICs, argumentando que a tecnologia, por si só, não produzirá mudanças concretas nas
+democracias contemporâneas se seu uso não for feito de maneira consciente, que leve em consideração o contexto político, econômico e cultural. 
+Pinho defende que a tecnologia não é neutra, mas sim apropriada social e politicamente, e desse modo, a realização das oportunidades proporcionadas pela tecnologia dependerá do estágio de desenvolvimento político de cada localidade. 
+
+O resultado do uso da tecnologia dependerá da apropriação que dela for feita. Por isso, é importante que o Estado implante o governo eletrônico sob uma ótica preocupada não apenas com a simples transposição de serviços físicos para a internet, mas que busque a efetivação da participação política de maneira sofisticada, empregando as tecnologias informacionais com o escopo de propiciar maior abertura à intervenção da sociedade civil na condução da democracia.
+Para tanto, cumpre pensar as políticas de governo eletrônico a partir da lógica das necessidades da sociedade, e não mais da lógica da administração pública, como comumente ocorre nesse campo. E um exemplo da relevância de se considerar a lógica da necessidade do cidadão, está na garantia de acesso universal aos serviços de governo eletrônico. Quer dizer, a participação cidadã na esfera pública somente poderá ser garantida caso as políticas de governo eletrônico se preocupem em abrir espaço para que toda e qualquer pessoa possa acessar os sites governamentais, consultar as informações e participar da construção do processo político. Trata-se,
+portanto, de pensar esse processo a partir do princípio do acesso universal.
