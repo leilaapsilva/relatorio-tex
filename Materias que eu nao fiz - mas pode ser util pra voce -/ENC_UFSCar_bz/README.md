@@ -1,5 +1,5 @@
 # Engenharia de Computação @ UFSCar
-Projetos Desenvolvidos para Disciplinas - Engenharia de Computação, UFSCar (2015-2020)
+Projetos Desenvolvidos para Disciplinas - Engenharia de Computação, UFSCar 
 
 ```
 ├── 2015-1

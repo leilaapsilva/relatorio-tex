@@ -1,0 +1,47 @@
+# depslib dependency file v1.0
+1529553754 source:c:\users\martmanhunter\desktop\estudos ferrari\minhapenultimaarvorebinaria\main.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"AB.c"
+
+1529867454 c:\users\martmanhunter\desktop\estudos ferrari\minhapenultimaarvorebinaria\ab.h
+
+1529868232 c:\users\martmanhunter\desktop\estudos ferrari\minhapenultimaarvorebinaria\ab.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"AB.h"
+
+1529885852 source:d:\minhapenultimaarvorebinaria - copia\main.c
+	<stdio.h>
+	<stdlib.h>
+	"AVL.c"
+
+1529868232 d:\minhapenultimaarvorebinaria - copia\ab.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"AB.h"
+
+1529867454 d:\minhapenultimaarvorebinaria - copia\ab.h
+
+1529886026 d:\minhapenultimaarvorebinaria - copia\avl.c
+	<stdio.h>
+	<stdlib.h>
+	"AVL.h"
+
+1529885231 d:\minhapenultimaarvorebinaria - copia\avl.h
+
+1529885852 source:d:\arvore_avl_743554\main.c
+	<stdio.h>
+	<stdlib.h>
+	"AVL.c"
+
+1529886026 d:\arvore_avl_743554\avl.c
+	<stdio.h>
+	<stdlib.h>
+	"AVL.h"
+
+1529885231 d:\arvore_avl_743554\avl.h
+

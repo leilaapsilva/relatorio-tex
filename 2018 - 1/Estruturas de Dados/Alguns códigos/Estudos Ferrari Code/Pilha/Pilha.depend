@@ -1,0 +1,11 @@
+# depslib dependency file v1.0
+1528590345 source:c:\users\martmanhunter\desktop\estudos ferrari\pilha\main.c
+	<stdio.h>
+	<stdlib.h>
+	"Pilha.h"
+
+1528575766 source:c:\users\martmanhunter\desktop\estudos ferrari\pilha\pilha.c
+	"Pilha.h"
+
+1528574962 c:\users\martmanhunter\desktop\estudos ferrari\pilha\pilha.h
+

@@ -1,0 +1,24 @@
+# depslib dependency file v1.0
+1514140574 source:c:\users\martmanhunter\desktop\estudos ferrari\listaduplamenteencadeada\main.c
+	<stdio.h>
+	<stdlib.h>
+
+1524111039 source:c:\users\martmanhunter\desktop\estudos ferrari\listaduplamenteencadeada\listadupla.c
+	"listadupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1524109771 c:\users\martmanhunter\desktop\estudos ferrari\listaduplamenteencadeada\listadupla.h
+
+1524111039 source:c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\listaduplamenteencadeada\listadupla.c
+	"listadupla.h"
+	<stdio.h>
+	<stdlib.h>
+
+1524109771 c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\listaduplamenteencadeada\listadupla.h
+
+1524111311 source:c:\users\martmanhunter\google drive\0 - grad\2018 - 1\estruturas de dados\estudos ferrari\listaduplamenteencadeada\main.c
+	<stdio.h>
+	<stdlib.h>
+	"listadupla.h"
+
