@@ -1,0 +1,29 @@
+wire
+reg
+  logic
+
+#atraso
+assign = combinacional
+  +
+  -
+  *
+  /
+  %
+
+cond ? true : false
+always @(posedge clock)
+  blocos sequenciais  
+  
+mux multiplexador - chaves seletoras sinais
+contador, flip-flop, 
+
+Define,
+include
+
+full-adder
+half-adder
+
+
+
+
+
