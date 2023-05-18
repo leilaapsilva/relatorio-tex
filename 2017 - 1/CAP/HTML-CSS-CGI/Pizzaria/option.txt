@@ -1,9 +1,0 @@
-<select>
-  <optgroup label="Option group 1">
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </optgroup>
-  <optgroup>
-    <option>Option 3</option>
-  </optgroup>
-</select>
