@@ -1,7 +1,0 @@
-Projeto de algoritmos por divisão e conquista
-
- - Dividir: o problema original é dividido em subproblemas menores do mesmo tipo.
-
- - Conquistar: os subproblemas são resolvidos recursivamente, sendo que os subproblemas pequenos são caso base.
-
- - Combinar: as soluções dos subproblemas são combinadas numa solução do problema original.
