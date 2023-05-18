@@ -1,9 +1,0 @@
-eu estou na linha um e agora
-agora estou na linha 2
-3
-4
-lonha 5
-eof
-eof eof
-chegou
-fim[]
