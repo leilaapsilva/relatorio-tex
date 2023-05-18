@@ -1,2 +1,0 @@
-Eu) Kruskal, busca em profundidade, busca em largura
-JV) Prim, Dijkstra e Coloração

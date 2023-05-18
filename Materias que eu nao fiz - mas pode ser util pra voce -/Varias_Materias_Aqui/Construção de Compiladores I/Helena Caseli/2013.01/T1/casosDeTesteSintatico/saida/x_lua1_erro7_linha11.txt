@@ -1,2 +1,0 @@
-Erro: linha 11:0 missing 'end' at '<EOF>'
-Fim da analise. Com erros sintaticos.

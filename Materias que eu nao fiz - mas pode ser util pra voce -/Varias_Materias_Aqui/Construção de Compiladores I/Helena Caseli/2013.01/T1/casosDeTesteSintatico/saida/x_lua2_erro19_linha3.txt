@@ -1,2 +1,0 @@
-Erro: linha 3:3 no viable alternative at input 'x0'
-Fim da analise. Com erros sintaticos.

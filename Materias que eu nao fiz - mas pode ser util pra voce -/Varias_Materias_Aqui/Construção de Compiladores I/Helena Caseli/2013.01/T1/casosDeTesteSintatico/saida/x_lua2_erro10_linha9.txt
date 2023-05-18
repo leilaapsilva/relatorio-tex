@@ -1,2 +1,0 @@
-Erro: linha 9:10 mismatched input 'if' expecting {',', '-', '*', 'or', '<', '<=', '~=', 'and', 'do', '%', '^', '+', '>', '/', '==', '>=', '..'}
-Fim da analise. Com erros sintaticos.

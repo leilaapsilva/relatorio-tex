@@ -1,2 +1,0 @@
-Erro: linha 2:10 no viable alternative at input 'local='
-Fim da analise. Com erros sintaticos.

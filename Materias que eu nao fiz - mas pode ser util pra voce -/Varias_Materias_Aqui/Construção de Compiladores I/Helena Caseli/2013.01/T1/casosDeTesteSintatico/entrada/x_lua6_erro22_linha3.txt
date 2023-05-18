@@ -1,2 +1,0 @@
-do
-   local oldprint = print; -- Grava a variável “print” em “oldprint”

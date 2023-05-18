@@ -1,2 +1,0 @@
-Erro: linha 4:6 mismatched input 'return' expecting {'-', '*', 'or', '<', '<=', '~=', 'and', '%', '^', '+', '>', 'then', '/', '==', '>=', '..'}
-Fim da analise. Com erros sintaticos.
